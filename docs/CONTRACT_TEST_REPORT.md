@@ -44,3 +44,17 @@ Ausführung über `.github/workflows/contract-validation.yml` mit gepinntem `jso
 python -m pip install -r requirements-dev.txt
 python tools/validate_contract.py
 ```
+
+## Ergänzung – strengere Shopping-Prüfungen (31.10.2026, 18:03 UTC)
+[GitHub Actions 41227460264](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41227460264), Job `124614481930`, Commit `02eb9f034256a98339b9fdf37618bb53f818c362`, completed/success. Original-Log geprüft:
+
+```text
+PASS v1: 5 positive, 7 negative; schema + semantic gates
+PASS v1.1: 11 positive, 34 negative; schema + semantic gates
+PASS all versions: 16 positive, 41 negative
+PASS: 27 retailer capability / safety gate assertions; 4 price+offer, 4 offer-only.
+```
+
+Neuer zusätzlicher Quervergleich: Produkt-/Packungs-Kopffeld muss zur einzigen Packungszeile passen, ein `FEASIBLE_NOT_PURCHASED`-Vorschlag benötigt bekannte Menge/Warenpreis/Cashbetrag/Kapazität; Budgetperioden dürfen nicht rückwärts laufen. **Wichtig:** Das v1.1-Beispiel-Array enthält weiterhin exakt **9** kanonische Nachrichtentyp-Beispiele; die CI zählt **11** positive Fälle, weil **2 gültige Zusatzfälle programmgeneriert** werden. Eine Modulprüfung, die `examples.json` selbst mit 11 Beispielen erwartet, hat ein falsches Testziel. Ein zunächst roter Architektur-CI-Lauf `41227411420` lag an einem falsch konstruierten Negativtest (als `FEASIBLE` gewertet, obwohl genügend Kapazitätsnachweise vorhanden waren); das Fixture wurde korrigiert, spätere CI grün.
+
+Keine Änderung am Schema-Blob `dca777d219307a90bf3d4dff6189fbf12476c508` durch diesen zusätzlichen Validator-Test. Kein Nachweis der Android- oder Händler-Live-Inbetriebnahme.
