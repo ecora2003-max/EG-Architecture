@@ -43,3 +43,5 @@ Die Module sind **Lieferanten eigenständiger, testbarer Produkte**, keine Paral
 - [Verbindliche Rechte- und Datenanzeige-Schranken](docs/PRICE_RIGHTS_AND_DISPLAY.md) einschließlich privater Bonhistorie und gesperrter externer Quellen.
 - [Integrations-Testplan für Codex](docs/CODEX_INTEGRATION_PLAN.md). **Dies ist eine Auftragsbeschreibung, keine fertige Android-Integration.**
 - Test: `python -m pip install -r requirements-dev.txt && python tools/validate_contract.py`; GitHub Actions `contract-validation` bei Vertragsänderungen.
+
+- **Aktueller Händler-Funktionsumfang:** [Preisabfrage und Angebots-Erfassung pro Händler](docs/RETAILER_SOURCE_POLICY.md) (ADR-016); separate [JSON-Policy](policies/retailer-source-capabilities.v1.json). Technische Funktionsentscheidung ≠ bestätigte Quellenrechte.
