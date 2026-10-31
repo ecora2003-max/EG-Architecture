@@ -24,6 +24,11 @@ def semantic_errors(message):
     payload = message["payload"]
     kind = message["messageType"]
     errors = []
+    if kind == "price.observation" and message.get("meta", {}).get("usageContext") == "APP_DISPLAY":
+        if payload["source"]["rightsStatus"] != "PERMITTED":
+            errors.append("APP_DISPLAY cannot use unverified or restricted external price source")
+        # PERMITTED is only the preliminary metadata gate. Real evidence scope,
+        # source terms and host authorization must still be verified outside JSON.
     if kind == "shopping.past.comparison":
         purchase = datetime.fromisoformat(payload["purchaseAt"])
         cutoff = datetime.fromisoformat(payload["evidenceCutoff"])
@@ -148,6 +153,9 @@ def negative_cases(examples):
         unproven["payload"]["status"] = "FEASIBLE_NOT_PURCHASED"
         unproven["payload"]["capacityEvidence"] = None
         negatives["feasible suggestion requires known capacity"] = unproven
+        blocked_price = copy.deepcopy(p)
+        blocked_price["meta"]["usageContext"] = "APP_DISPLAY"
+        negatives["unverified external price forbidden for display"] = blocked_price
         add("historical savings is merchandise only", past, ["payload", "savingsBasis"], "CHECKOUT")
         add("historical savings requires explicit basis", past, ["payload", "savingsBasis"], Ellipsis)
         proven_zero = copy.deepcopy(past)
