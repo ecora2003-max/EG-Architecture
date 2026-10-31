@@ -27,6 +27,8 @@
 
 | ADR-018 | ANGENOMMEN 31.10.2026 | **Öffentliche Angebotspreise aller acht Händler**; **Angebotskatalog-Erschließung nur für ALDI Nord/Süd, Lidl und REWE** | Präzisiert ADR-016 um eine eigenständige Katalog-Fähigkeit. Katalogerschließung heißt indexierte Aktionspositionen mit Datums-/Filialbeleg, **nicht** pauschale Prospekt-/Mediendatenbank-Reproduktion; öffentliche Zugänglichkeit ≠ nachgewiesene Wiederverwendungsrechte. [Policy](RETAILER_SOURCE_POLICY.md), [JSON-Fähigkeitsmatrix](../policies/retailer-source-capabilities.v1.json) in Version 1.0.2. |
 
+| ADR-019 | ANGENOMMEN 31.10.2026 | **Keine weiteren eigenständigen Rechtsrecherchen/-prüfungen durch Codex oder Fachmodule ohne neue Initiative des Nutzers.** Entwicklungszeit auf Integration und Tests konzentrieren | Verbindliche spätere Nutzeranweisung; keine separaten Lizenz-/Gutachten-Workstreams, keine pauschale Verzögerung von Offlinefunktionen. Bestehende technische Zugriffsgrenzen und wahrheitsgemäße Rechtekennzeichnung bleiben; dadurch ist keine Drittquellenlizenz belegt. [ADR-019](ADR_019_NO_SEPARATE_LEGAL_REVIEWS.md). |
+
 ## Änderungsverfahren
 Im **eigenen Modul-Repo** einen fachlichen Änderungsantrag mit Problem, Beispiel, betroffenen Verträgen, Kompatibilitätsbedarf und Tests dokumentieren. Architektursteuerung entscheidet in diesem Register und versioniert das Vertragsschema. **Kein Fachmodul schreibt direkt hier.**
 
