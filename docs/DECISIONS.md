@@ -22,7 +22,7 @@
 | ADR-015 | ANGENOMMEN 31.10.2026 | Fachmodule werden nicht von Architektur-Chats in fremden Repos geändert; Integration ausschließlich über Codex | Integrationsplan [Codex](CODEX_INTEGRATION_PLAN.md), Abnahme erst mit End-to-End-JVM/Migrations-/Gerätenachweisen |
 
 
-| ADR-016 | ANGENOMMEN 31.10.2026 | **Händlerspezifischer Funktionsumfang:** gezielte Produktpreisabfrage + Angebotserfassung nur für ALDI Nord/Süd, REWE, Lidl; Angebotserfassung ohne gezielte Produktpreisabfrage für Penny, Kaufland, EDEKA; Netto Marken-Discount ohne neue Entscheidung | Nutzerentscheidung, konkretisiert ADR-006 hinsichtlich **Datenabruf-Funktionen**; siehe [Händlermatrix](RETAILER_SOURCE_POLICY.md) und [Policy JSON](../policies/retailer-source-capabilities.v1.json). Keine rechtliche Lizenz durch Funktionsfreigabe; rechtskonforme Quellenprüfung/APP_DISPLAY-Gate bleiben unabhängig. |
+| ADR-016 | ANGENOMMEN 31.10.2026 | **Händlerspezifischer Funktionsumfang:** gezielte Produktpreisabfrage + Angebotserfassung nur für ALDI Nord/Süd, REWE, Lidl; Angebotserfassung ohne gezielte Produktpreisabfrage für Penny, Kaufland, EDEKA und Netto Marken-Discount | Nutzerentscheidung, konkretisiert ADR-006 hinsichtlich **Datenabruf-Funktionen**; siehe [Händlermatrix](RETAILER_SOURCE_POLICY.md) und [Policy JSON](../policies/retailer-source-capabilities.v1.json). Keine rechtliche Lizenz durch Funktionsfreigabe; rechtskonforme Quellenprüfung/APP_DISPLAY-Gate bleiben unabhängig. |
 
 ## Änderungsverfahren
 Im **eigenen Modul-Repo** einen fachlichen Änderungsantrag mit Problem, Beispiel, betroffenen Verträgen, Kompatibilitätsbedarf und Tests dokumentieren. Architektursteuerung entscheidet in diesem Register und versioniert das Vertragsschema. **Kein Fachmodul schreibt direkt hier.**
