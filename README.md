@@ -36,3 +36,10 @@ Die Module sind **Lieferanten eigenständiger, testbarer Produkte**, keine Paral
 
 ## Freigabegrad
 `1.0.0-draft` definiert zunächst den gemeinsamen Arbeitsrahmen. Feldnamen, Pflichtfelder und JSON-Schemas werden vor stabiler `1.0.0` anhand von Beispielen aller vier Module validiert. Keine fertige Haupt-App-Integration oder vollständige Händler-API-Abdeckung wird hier behauptet.
+
+## Vertragsweiterentwicklung und Übergabe (31.10.2026)
+- **Aktuell von den Fachmodulen verwendet:** [`contracts/v1` – 1.0.0-draft](contracts/v1/contract.schema.json) (unverändert).
+- **Neue, noch nicht stabil freigegebene Erweiterung:** [`contracts/v1.1` – 1.1.0-draft](contracts/v1.1/README.md), vier Shopping-Nachrichtentypen mit synthetischen Fixtures. Module müssen weiterhin ihre unterstützte Version ausdrücklich nennen.
+- [Verbindliche Rechte- und Datenanzeige-Schranken](docs/PRICE_RIGHTS_AND_DISPLAY.md) einschließlich privater Bonhistorie und gesperrter externer Quellen.
+- [Integrations-Testplan für Codex](docs/CODEX_INTEGRATION_PLAN.md). **Dies ist eine Auftragsbeschreibung, keine fertige Android-Integration.**
+- Test: `python -m pip install -r requirements-dev.txt && python tools/validate_contract.py`; GitHub Actions `contract-validation` bei Vertragsänderungen.
