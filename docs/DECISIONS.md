@@ -16,6 +16,11 @@
 | ADR-011 | VORLÄUFIG | Austauschvertrag 1.0.0-draft mit JSON-Schema, Beispielen und optionalen Extensions | Schema vor stabilem Release durch alle Teams und Codex prüfen |
 | ADR-012 | OFFEN | Ziel-Runtime von AI-Rezepten und Lizenz/Persistenz externer Supermarktdaten | Technische Machbarkeit und Rechtslage müssen belegt werden |
 
+
+| ADR-013 | ENTWURF 31.10.2026 | Shopping-Nachrichten `shopping.need.projection`, `shopping.purchase.suggestion`, `shopping.offer.interest` und `shopping.past.comparison` in separatem `contracts/v1.1` | Ergänzung auf Antrag von Einkaufsintelligenz; `v1.0` bleibt unverändert, Stabilisierung nach Abnehmer- und CI-Tests |
+| ADR-014 | ANGENOMMEN 31.10.2026 | Nutzeranzeige fremder Preisbeobachtungen nur mit nachgewiesenen, zweckbezogenen Rechten; private bestätigte Bonpreise getrennt | `UNVERIFIED`/`RESTRICTED` niemals still als `APP_DISPLAY`-geeignet umdeuten; zwei technische Gates; siehe [Preisquellenrichtlinie](PRICE_RIGHTS_AND_DISPLAY.md) |
+| ADR-015 | ANGENOMMEN 31.10.2026 | Fachmodule werden nicht von Architektur-Chats in fremden Repos geändert; Integration ausschließlich über Codex | Integrationsplan [Codex](CODEX_INTEGRATION_PLAN.md), Abnahme erst mit End-to-End-JVM/Migrations-/Gerätenachweisen |
+
 ## Änderungsverfahren
 Im **eigenen Modul-Repo** einen fachlichen Änderungsantrag mit Problem, Beispiel, betroffenen Verträgen, Kompatibilitätsbedarf und Tests dokumentieren. Architektursteuerung entscheidet in diesem Register und versioniert das Vertragsschema. **Kein Fachmodul schreibt direkt hier.**
 
