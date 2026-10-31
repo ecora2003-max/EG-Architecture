@@ -1,4 +1,7 @@
 # Preisquellen: Forschungsnutzung, App-Anzeige und private Historie
+
+> **Aktuelle Priorisierung – ADR-019, 31.10.2026:** **Keine neuen separaten rechtlichen Prüfungen, Gutachten, Lizenzanfragen oder rechtlichen Rechercheaufträge** durch Codex bzw. Modul-Chats ohne erneute ausdrückliche Nutzerinitiative. Die folgenden Regeln bleiben lediglich vorhandene technische Daten- und Anzeigegrenzen. Vorhandene ungeklärte Statusangaben dürfen nicht künstlich in belegte Freigaben umgewandelt werden. Die sichere Offline-App-Integration darf dadurch **nicht aufgehalten** werden. [ADR-019](ADR_019_NO_SEPARATE_LEGAL_REVIEWS.md).
+
 **Integrationsregel, 31.10.2026.** Diese Seite ist eine technische Sicherheits-Gate-Definition, **keine Rechtsberatung oder Nutzungslizenz**.
 
 ## Drei strikt getrennte Verwendungen
