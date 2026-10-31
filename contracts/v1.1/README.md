@@ -41,3 +41,10 @@ Neu:
 
 ## Freigabebedingung
 `1.1.0-draft` wird **nicht automatisch stabil**. Vor Freigabe müssen der Einkaufs-Chat, Produktdaten-/Preisdatenchat und Codex gegen echte Modul-/App-DTOs prüfen, dass IDs/Mengen/Gültigkeit/Snapshots verlustfrei abgebildet werden. Ungeklärte Felder als Änderungsantrag, keine stillen Implementierungsänderungen. Nach CI-grüner Schema- und Modulprüfung neues ADR-/Versionsprotokoll erstellen und erst dann `1.1.0` freigeben.
+
+## ADR-017: nachgeschärfte v1.1-Draft-Semantik (31.10.2026)
+- `shopping.need.projection.payload.unknownNeeds[]` ist nun explizit typisiert: `needId`, `foodTypeId`, `dueDate|null`, `quantityToBuy=null`, `reason`. Das generische `Quantity.unit` bleibt **unverändert**; unbekannte Einheiten werden nicht als `g` o. Ä. erfunden. Ein offener Bedarf erzwingt `PARTIAL` oder `UNKNOWN`, eindeutige IDs sind auch mit `needs[]` zu gewährleisten.
+- `shopping.purchase.suggestion.payload.packageLines[]` ist für gemischte Gebinde strukturiert. Je Packung werden Produkt-ID, Preisbeleg, Anzahl, Menge, Warenpreis, Pfand, Gesamtpreis und Händler-/Filialzuordnung getrennt übertragen. Gesamtwerte sind nur bei vollständig belegter Zusammensetzung beweisbar. Ein Mix darf keinen vermeintlichen Einzelartikel vorspiegeln.
+- `shopping.past.comparison.payload.savingsBasis` ist ab **dieser Draft-Revision Pflicht** und ausschließlich `MERCHANDISE_ONLY`. `savingsProvenCents` ist keine hypothetische Checkout-/Pfand- oder bloße Grundpreisersparnis.
+- **Kompatibilität:** `contracts/v1` und dessen Nachrichten bleiben unverändert. Der frühere `v1.1`-Entwurf wird durch die neue Pflichtangabe `savingsBasis` nicht vollständig rückwärtskompatibel fortgeschrieben. Es bleibt ausdrücklich `1.1.0-draft`, **nicht** freigegeben; zur Migration den aktuellen Schema-Blob lesen, nicht eine alte Kopie verwenden.
+- Formaler Beschluss und Nachweise: [ADR-017](../../docs/ADR_017_SHOPPING_RESOLUTION.md), [Vertragstestbericht](../../docs/CONTRACT_TEST_REPORT.md); GitHub Actions [41226969317](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41226969317) 11 positive + 30 negative v1.1-Fälle.
