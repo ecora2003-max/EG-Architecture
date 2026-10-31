@@ -57,3 +57,8 @@ Synthetische Daten standardmäßig. Echte Kassenbons/Filialidentitäten/Beobacht
 
 ## J. App-Integrations-Gate (Codex)
 Keine 1:1-Festschreibung von Zulieferer-DTOs in Room. Codex validiert, normalisiert und schreibt nur über bestehende transaktionale `FoodStore`-Grenze. Vorher/nachher gleiche Testfälle auf echtem App-Modell; Versionshistorizität, unveränderte IDs/Chargen/Buchungen, Idempotenz, Race Conditions, Migration über alle Altschemas, offline/randlastige Geräteszenarien. No-Go bei stillen Änderungen produktiver Bestände, doppelt bezahlten Belegen, fehlerhaftem Vergleich oder Daten-/Lizenzrisiken.
+
+## K. Version 1.1 (Shopping-DTOs) und externe Preisanzeige
+- Der bisherige Vertrag `contracts/v1` ist nicht still umdefiniert. Neue Nachrichtentypen liegen ausschließlich unter `contracts/v1.1` mit expliziter `contractVersion=1.1.0-draft`. Fachmodule melden ihre unterstützte Version. Die 1.1-Fassung ist **nicht** ohne Abnehmer-/CI-Prüfung freigegeben.
+- Vor externer Preisnutzung gilt die zweckgebundene [Quelle-/Rechte-Gate-Richtlinie](PRICE_RIGHTS_AND_DISPLAY.md). Für `APP_DISPLAY` darf eine externe Quelle mit `UNVERIFIED` oder `RESTRICTED` nicht angezeigt oder für sichtbare Ersparnisberechnungen eingesetzt werden. `RESEARCH_ONLY` und `PRIVATE_USER_HISTORY` strikt unterscheiden. Einzelne Tool-/Feed-Erfolge ersetzen keine Erlaubnis.
+- [Codex-Integrationsreihenfolge](CODEX_INTEGRATION_PLAN.md) inklusive synthetischer Bon→Identität→bestätigter Kauf→Preisgedächtnis→Vergleich→Bedarf-Testkette, Korrektur-/Deduplikations-/Migrations-/Geräteprüfung. Fachmodule dürfen den App-Code nicht selbst schreiben.
