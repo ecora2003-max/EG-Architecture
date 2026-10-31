@@ -42,3 +42,7 @@ Keine Änderung an fremden Fachrepos oder Architektur durch Codex. Bei fehlender
 
 ## F. Statusführung für Codex
 Bei jedem App-Merge/Integrationsabschnitt: geprüftes Modul-SHA, Vertrag, geänderte Dateien, Adaptermapping, ausgeführte Befehle/Pass/Fail/Skip, unveränderte Bestands-/Kaufsicherung, Geräteteststatus, aktueller APK-Teststand in der **privaten Haupt-App** dokumentieren. Commit-/Workflow-Ergebnis ist nicht gleich Hardwarefreigabe.
+
+
+## G. Aktuelle Händler-Funktionsmatrix für Android/Codex
+Beim Android-Port **ADR-016** und [RETAILER_SOURCE_POLICY.md](RETAILER_SOURCE_POLICY.md) zwingend berücksichtigen. Gezielte Produktpreisabfrage nur für ALDI Nord/Süd, REWE und Lidl; veröffentlichte Angebotsdaten auch für Penny, Kaufland, EDEKA; Netto bisher unentschieden. Händlerpreis- und Angebotsdaten sind separate Fähigkeiten. Produktivnutzung nur nach Rechts-/Quellenprüfung, nicht durch die Nutzerfunktionsentscheidung selbst; keine Umbuchungen oder pauschal unterstellte Filialabdeckung. Negative Kotlin-Tests für die drei ausgeschlossenen Normalpreis-Abfrage-Händler und für `UNVERIFIED`/`RESTRICTED` bei `APP_DISPLAY` ergänzen. Diese Dokumentation ist nur Übergabe, keine erfolgte App-Änderung.
