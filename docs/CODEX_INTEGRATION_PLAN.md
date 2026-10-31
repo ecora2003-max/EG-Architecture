@@ -1,4 +1,7 @@
 # Codex – Integrationsplan der vier Fachmodule (nur lesender Übergabeauftrag)
+
+> **Neueste verbindliche Arbeitsanweisung (ADR-019, 31.10.2026):** Codex soll **keine separaten rechtlichen Recherchen/Prüfprojekte** zu öffentlich beworbenen Händlerpreisen oder Katalogen mehr durchführen, keine neuen Lizenzanfragen anstoßen und die Diskussion nicht ohne ausdrückliche Nutzerinitiative wieder öffnen. Stattdessen Integration und technische Tests fortsetzen. Der bestehende Rights-/Source-Status bleibt wahrheitsgemäß und die technischen Zugriffsgrenzen gelten weiter; dies ist **keine** neue Aufgabe, alle Nutzungsrechte einzeln zu untersuchen. Nicht aktivierte externe Livefeeds dürfen die Offlineintegration nicht blockieren. Details: [ADR-019](ADR_019_NO_SEPARATE_LEGAL_REVIEWS.md).
+
 **Stand 31.10.2026.** **Dieses Dokument ist keine ausgeführte App-Integration.** `Ernaerungsgedaechtnis` ist ausschließlich das Schreibrepository von Codex. Architektur- und Fach-Chats **ändern die Haupt-App nicht**.
 
 ## A. Ausgangslage
