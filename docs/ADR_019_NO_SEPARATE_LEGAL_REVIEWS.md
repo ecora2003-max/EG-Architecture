@@ -1,0 +1,15 @@
+# ADR-019 – Keine eigenständige Rechtsrecherche durch Codex oder Fachmodul-Chats
+
+**Entscheidung:** ANGENOMMEN, 31.10.2026; Weisung des Projektauftraggebers. **Gilt ab sofort für die Arbeitsplanung;** ergänzt ADR-014/016/018, ohne die fachlichen Datenverträge zu verändern.
+
+## Entscheidung
+
+1. **Keine separaten rechtlichen Prüfaufträge mehr.** Codex und die Fachmodul-Chats sollen **ohne neue ausdrückliche Initiative des Nutzers** weder neue rechtliche Recherchen, Rechtsgutachten, Lizenzanfragen oder wiederholte Bewertungen öffentlicher Händler-Angebotspreise/Kataloge durchführen noch Arbeitszeit darauf verwenden. Nicht von sich aus wiederholt um Zustimmung oder juristische Einschätzung bitten.
+2. Die **Entwicklung und Integration** sind fortzusetzen, vorrangig mit bereits implementierten und nachweisbar getesteten Offlinekomponenten. Für den Funktionsumfang gilt ADR-018: veröffentlichte Angebotspreise aller acht Händler, Angebotskatalog-Erschließung für ALDI Nord/Süd, Lidl, REWE; gezielte reguläre Produktpreisabfrage nur für diese vier.
+3. **Keine künstliche rechtliche Parallelbaustelle oder pauschale Blockade der gesamten App-Integration.** Fehlende Live-Daten oder noch nicht aktivierte externe Quellen dürfen die sichere Offlinefunktionalität, Adapter, synthetischen Tests, Room-Migrationen, Rezept-/Produkt-/Einkaufslogik nicht verzögern.
+4. **Bestehende technische und Wahrheitsgrenzen bleiben.** Keine Zugangssperren oder Nutzungsbedingungen umgehen, keine Quellen als nachweislich lizenziert kennzeichnen, wenn dafür kein Beleg vorliegt, kein eigenmächtiges Hochstufen von `UNVERIFIED` auf `PERMITTED`, keine ungedeckte Freischaltung oder erfundenen Live-Preise. Bestehende automatische Sicherheitsgates können im Rahmen regulärer Implementierung weiterhin funktionieren; **keine gesonderte rechtliche Prüfkampagne** dafür beginnen. Bei einer konkreten technischen/rechtlichen Sperre lediglich den tatsächlichen Sachverhalt und die betroffene Funktion knapp dokumentieren und an anderen Funktionen weiterarbeiten.
+5. **Keine Rechtsbehauptung.** Die Entscheidung des Nutzers, den Gegenstand projektseitig als geklärt zu behandeln, ist eine Arbeitspriorisierung, **kein unabhängig überprüfter Nachweis**, dass ein konkreter externer Datenbestand beliebig reproduziert oder weiterveröffentlicht werden darf. Der Nutzer verlangt gerade keine neue Recherche dazu; dieser Punkt soll ohne neue Initiative auch nicht wiederholt aufgearbeitet werden.
+
+## Prioritäts- und Übergaberegel
+
+Diese **spätere ausdrückliche Nutzeranweisung** hat bei der **Planung von Codex-Arbeit** Vorrang vor älteren Textstellen, die zu erneuter separater rechtlicher Prüfung auffordern. ADR-014 beschreibt weiter die reine technische Datenkennzeichnung/Anzeigegrenze; die Formulierung bedeutet nicht, dass Codex erneut rechtlich recherchieren soll. Ein Freigabegrad `INTEGRATED` darf weiterhin nur nach realer Android- und Datenintegrationsprüfung behauptet werden. Chat 1 bearbeitet ausschließlich `EG-Architecture`; Codex liest die neue Entscheidung und schreibt nur die Haupt-App.
