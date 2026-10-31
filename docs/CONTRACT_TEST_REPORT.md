@@ -1,6 +1,20 @@
 # Vertragstests – 31.10.2026
 
-## Verifizierter aktueller CI-Nachweis
+## Neuester nachgeprüfter CI-Nachweis – ADR-017
+**GitHub Actions [Run 41226969317](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41226969317)**, Job `validate` (ID `124613037294`), Commit `c1b08f0e062fb9d2cdacf4853296c5529f85f17b`, `completed/success`. Vollständiges Joblog direkt eingesehen:
+
+```text
+PASS v1: 5 positive, 7 negative; schema + semantic gates
+PASS v1.1: 11 positive, 30 negative; schema + semantic gates
+PASS all versions: 16 positive, 37 negative
+PASS: 27 retailer capability / safety gate assertions; 4 price+offer, 4 offer-only.
+```
+
+**Neu geprüft:** strenges `unknownNeeds[]`-Format und Duplikatsperre, unvollständige Bedarfsprojektionen, typisierte `packageLines[]` mit Quellen-/Preis-/Pfandsummen, zwei zusätzliche gültige gemischte/unsichere Beispiel-DTOs, `savingsBasis=MERCHANDISE_ONLY` und verbotene Scheinersparnis. Vollständiges JSON Schema Draft 2020-12 und zusätzliche Cross-Field-Semantik. **Keine** neue v1-Fachregel.
+
+**Grenze:** Dies belegt Architektur-DTOs und die Händlerkonfigurationsmatrix, **nicht** die bereits vendorten Vertragskopien der Module, nutzbare Live-Quellen, App-Runtime oder Kotlin-Integration. Weitere Abnehmer-/Android-Abnahmetests offen.
+
+## Vorheriger CI-Nachweis (vor ADR-017)
 **GitHub Actions [Run 41224097675](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41224097675)**, Job `validate` (Job-ID `124604509848`), Status `completed/success`. Das vollständige Joblog wurde direkt gelesen; exakte Ausgabe des Python-Programms:
 
 ```text
