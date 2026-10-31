@@ -4,20 +4,24 @@
 
 ## Gewünschter Funktionsumfang
 
-| Händler | Gezielte Produktpreisabfragen | Erfassung veröffentlichter Angebote |
-| --- | --- | --- |
-| ALDI Nord | **Ja** | **Ja** |
-| ALDI Süd | **Ja** | **Ja** |
-| REWE | **Ja** | **Ja** |
-| Lidl | **Ja** | **Ja** |
-| Penny | **Nein** | **Ja** |
-| Kaufland | **Nein** | **Ja** |
-| EDEKA | **Nein** | **Ja** |
-| Netto Marken-Discount | **Nein** | **Ja** |
+| Händler | Gezielte reguläre Produktpreisabfrage | Öffentlich beworbene Angebotspreise | Erschließung von Angebotskatalogen |
+| --- | --- | --- | --- |
+| ALDI Nord | **Ja** | **Ja** | **Ja** |
+| ALDI Süd | **Ja** | **Ja** | **Ja** |
+| REWE | **Ja** | **Ja** | **Ja** |
+| Lidl | **Ja** | **Ja** | **Ja** |
+| Penny | **Nein** | **Ja** | **Nein** |
+| Kaufland | **Nein** | **Ja** | **Nein** |
+| EDEKA | **Nein** | **Ja** | **Nein** |
+| Netto Marken-Discount | **Nein** | **Ja** | **Nein** |
 
 **Geltungsbereich:** „Ja“ bedeutet *fachlich zur Implementierung vorgesehen* und *bei zulässiger Quelle nutzbar*, nicht automatisch „Datenabruf rechtlich freigegeben“. „Nein“ schließt diese Funktion für den genannten Händler im neuen Projektumfang aus, auch wenn ein früherer Forschungsadapter technisch Preise abrufen konnte. Netto Marken-Discount ist jetzt ebenfalls **nur für die Angebotserfassung**, nicht für gezielte reguläre Preisabfragen vorgesehen. Bestehende Forschungsergebnisse bleiben erhalten; eine Produktivfreigabe folgt daraus nicht.
 
 ## Präzise Trennung
+
+**Präzisierung 31.10.2026 (Nutzerentscheidung):** Öffentlich bekannt gemachte **Angebotspreise aller acht Händler** sind als funktionale Datenquelle vorgesehen. Zusätzlich sollen die **Angebotskataloge/-listen von ALDI Nord, ALDI Süd, Lidl und REWE** erschlossen werden (recherchierbare Angebotspositionen mit Quelle, Veröffentlichungsdatum, Aktionszeitraum und Region). Für Penny, Kaufland, EDEKA und Netto Marken-Discount bleibt die Auswertung einzelner beworbener Angebotspreise vorgesehen, aber **keine vollständige Angebotskatalog-Erschließung**. Diese Unterscheidung ist eine Projektumfangsentscheidung, keine Tatsachenbehauptung über fehlende Kataloge anderer Händler. Eine vollständige Kopie fremder Prospekte, Bilder und Datenbanken wird dadurch nicht freigegeben.
+
+**„Frei“ unterscheidet drei Sachverhalte:** frei/öffentlich einsehbare Werbung; technisch ohne Kaufkosten abrufbare Daten; rechtlich für systematische Verarbeitung, Speicherung und App-Anzeige nutzbare Daten. Die ersten zwei Merkmale belegen das dritte **nicht**. Ein einzelnes öffentliches Preisfaktum kann rechtlich anders zu beurteilen sein als die systematische Vervielfältigung eines Angebotskatalogs; die **konkrete** Quellen- und Nutzungsprüfung bleibt Pflicht.
 
 **Gezielte Produktpreisabfrage:** Einzelne Produkte, GTINs oder bekannte FoodType-Suchbegriffe auf konkreten Nutzerwunsch bzw. klar begrenzten Einkaufsbedarf hin, mit begrenzter Anzahl Treffer, Kontrolle von Filiale/Region/Zeitpunkt und Rate-Limits. Kein automatisierter Vollsortiments-/Bulk-Katalogdownload. Ein gefundenes Produkt ohne verlässlichen Regalpreis bleibt im Ergebnis *Preis unbekannt*.
 
