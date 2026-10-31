@@ -39,6 +39,10 @@ def semantic_errors(message):
         if lines:
             refs = set(payload["observationRefs"])
             products = {line["productId"] for line in lines}
+            if len(lines) == 1 and payload["productId"] is not None and payload["productId"] != lines[0]["productId"]:
+                errors.append("single row product must match header")
+            if len(lines) == 1 and payload["packageCount"] is not None and payload["packageCount"] != lines[0]["packageCount"]:
+                errors.append("single row pack count must match header")
             if len(lines) > 1 and (payload["productId"] is not None or payload["packageCount"] is not None):
                 errors.append("mixed package selection must not masquerade as a single product/package count")
             if len(products) > 1 and payload["productId"] is not None:
