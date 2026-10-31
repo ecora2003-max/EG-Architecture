@@ -22,3 +22,6 @@
 
 ## Umsetzung
 Die Android-Haupt-App/Codex verantwortet die Darstellung und private Historie. Das Preisdatenmodul ist bereits konservativ bei `APP_DISPLAY`. Einkaufsintelligenz muss eine explizite `usageContext`- bzw. vertrauenswürdige, vom Host geprüfte Quellenfreigabe-Grenze und passende Negativtests liefern. Ein Modul-Chat schreibt hierfür ausschließlich in sein eigenes Repository; Änderungen am Architektur-Repo nur durch die Architektursteuerung.
+
+## Konkretisierte Händlerauswahl (ADR-016)
+Fachliche Auswahl: ALDI Nord, ALDI Süd, REWE und Lidl – gezielte Preisabfragen und veröffentlichte Angebote. Penny, Kaufland und EDEKA – ausschließlich veröffentlichte Angebote. Netto Marken-Discount – keine neue Entscheidung. Maßgeblich ist `docs/RETAILER_SOURCE_POLICY.md` samt JSON-Matrix. Die fachliche Auswahl ist keine Aussage über individuelle Nutzungsrechte. Der quellen- und verwendungsbezogene Rechtsstatus bleibt getrennt zu prüfen. Einzelne öffentlich sichtbare Preisfakten erfordern nicht allein aufgrund ihrer Herkunft zwingend einen Lizenzvertrag; ob ein konkretes Verfahren zulässig ist, hängt u. a. vom Abrufumfang, Datenbankrechten, Nutzungsbedingungen und der Wiederverwendung ab. Ungeklärte Produktivquellen werden nicht automatisch als freigegeben gekennzeichnet.
