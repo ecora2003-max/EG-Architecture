@@ -35,6 +35,15 @@ def semantic_errors(message):
             if not payload["matchedHistoricalOfferIds"] or payload["savingsProvenCents"] is None or payload["savingsProvenCents"] <= 0:
                 errors.append("PROVEN needs matched prices and strictly positive proven merchandise savings")
     elif kind == "shopping.purchase.suggestion":
+        if payload["status"] == "FEASIBLE_NOT_PURCHASED":
+            if (payload["quantity"]["amount"] is None
+                or payload["expectedCents"] is None
+                or payload["checkoutCents"] is None
+                or payload.get("capacityEvidence") is None):
+                errors.append("feasible purchase suggestion needs known quantity, costs and capacity")
+        period = payload.get("budgetPeriod")
+        if period is not None and period["from"] > period["until"]:
+            errors.append("budget period reversed")
         lines = payload.get("packageLines", [])
         if lines:
             refs = set(payload["observationRefs"])
