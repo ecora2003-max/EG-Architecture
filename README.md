@@ -51,3 +51,5 @@ Die Module sind **Lieferanten eigenständiger, testbarer Produkte**, keine Paral
 - [Abnehmer-Kompatibilitätsaudit](docs/CONSUMER_COMPATIBILITY_AUDIT.md) mit konkreten Modul-Schema-SHAs, gültigen CI-Nachweisen und offenen Codex-Testgates.
 - [ADR-017](docs/ADR_017_SHOPPING_RESOLUTION.md): unbekannte Bedarfe, typisierte gemischte Packungen und Warenpreis-Basis historischer Ersparnisse im `1.1.0-draft`. Die vorherige v1.1-Testkopie ist nach dieser Draft-Revision **nicht** mehr schema-identisch; betroffene Module müssen erneut prüfen.
 - [GitHub Actions Run 41226969317](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41226969317): 16 positive + 37 negative Schema-/Semantiktests, 27 Händler-Policy-Prüfungen erfolgreich. Keine Android-, Live-Händler- oder Rechtsfreigabe.
+
+- [Aktueller Integrationsaudit 01.11.2026](docs/INTEGRATION_EVIDENCE_2026-11-01.md): überprüfte Fachmodul-/Host-CI, Room-8-Teilports, festgestellter Policy-Drift 1.0.1↔1.0.3 und noch offene Host-Orchestrierung; keine produktive Freigabe.
