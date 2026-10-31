@@ -45,3 +45,8 @@ Die Module sind **Lieferanten eigenständiger, testbarer Produkte**, keine Paral
 - Test: `python -m pip install -r requirements-dev.txt && python tools/validate_contract.py`; GitHub Actions `contract-validation` bei Vertragsänderungen.
 
 - **Aktueller Händler-Funktionsumfang:** [Preisabfrage und Angebots-Erfassung pro Händler](docs/RETAILER_SOURCE_POLICY.md) (ADR-016); separate [JSON-Policy](policies/retailer-source-capabilities.v1.json). Technische Funktionsentscheidung ≠ bestätigte Quellenrechte.
+
+## Chat-1-Übergabe und aktueller Stand
+- [Aktueller Architektur- und Modulstatus](docs/STATUS.md), inklusive letzter CI-Nachweise und noch offener Freigabe-Gates.
+- [ADR-017](docs/ADR_017_SHOPPING_RESOLUTION.md): unbekannte Bedarfe, typisierte gemischte Packungen und Warenpreis-Basis historischer Ersparnisse im `1.1.0-draft`. Die vorherige v1.1-Testkopie ist nach dieser Draft-Revision **nicht** mehr schema-identisch; betroffene Module müssen erneut prüfen.
+- [GitHub Actions Run 41226969317](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41226969317): 16 positive + 37 negative Schema-/Semantiktests, 27 Händler-Policy-Prüfungen erfolgreich. Keine Android-, Live-Händler- oder Rechtsfreigabe.
