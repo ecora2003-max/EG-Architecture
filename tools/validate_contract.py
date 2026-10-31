@@ -132,6 +132,8 @@ def negative_cases(examples):
         add("package line with wrong merchandise total", suggestion, ["payload", "expectedCents"], 198)
         add("package line checkout must reconcile", suggestion, ["payload", "packageLines", 0, "checkoutCents"], 198)
         add("package line store requires retailer", suggestion, ["payload", "packageLines", 0, "retailerId"], None)
+        add("header product must match package line", suggestion, ["payload", "productId"], "OTHER-FAKE-PRODUCT")
+        add("header pack count must match package line", suggestion, ["payload", "packageCount"], 2)
         add("historical savings is merchandise only", past, ["payload", "savingsBasis"], "CHECKOUT")
         add("historical savings requires explicit basis", past, ["payload", "savingsBasis"], Ellipsis)
         proven_zero = copy.deepcopy(past)
