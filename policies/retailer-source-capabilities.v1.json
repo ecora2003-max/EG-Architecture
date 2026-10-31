@@ -1,47 +1,57 @@
 {
-  "policyVersion": "1.0.1",
+  "policyVersion": "1.0.2",
   "decidedAt": "2026-10-31",
   "category": "PROJECT_FUNCTIONAL_CAPABILITY_NOT_LEGAL_PERMISSION",
   "uses": [
     "TARGETED_PRODUCT_PRICE_QUERY",
-    "PUBLISHED_OFFER_COLLECTION"
+    "PUBLISHED_OFFER_COLLECTION",
+    "PUBLISHED_OFFER_CATALOG_DISCOVERY"
   ],
   "modes": {
     "TARGETED_PRODUCT_PRICE_QUERY": "On-demand query for specified products/GTIN/food types with bounded responses; not a bulk price catalogue crawler.",
-    "PUBLISHED_OFFER_COLLECTION": "Collect explicitly published, dated offers with provenance and regional/store applicability; not a blanket right to copy flyers, media or whole databases."
+    "PUBLISHED_OFFER_COLLECTION": "Collect explicitly published, dated offers with provenance and regional/store applicability; not a blanket right to copy flyers, media or whole databases.",
+    "PUBLISHED_OFFER_CATALOG_DISCOVERY": "Discover and browse structured listings of publicly advertised offers for the four designated retailers; no entitlement to download, mirror or redistribute entire flyers, images or protected catalog databases."
   },
   "retailerCapabilities": {
     "ALDI_NORD": {
       "targetedProductPriceQuery": true,
-      "publishedOfferCollection": true
+      "publishedOfferCollection": true,
+      "publishedOfferCatalogDiscovery": true
     },
     "ALDI_SUED": {
       "targetedProductPriceQuery": true,
-      "publishedOfferCollection": true
+      "publishedOfferCollection": true,
+      "publishedOfferCatalogDiscovery": true
     },
     "REWE": {
       "targetedProductPriceQuery": true,
-      "publishedOfferCollection": true
+      "publishedOfferCollection": true,
+      "publishedOfferCatalogDiscovery": true
     },
     "LIDL": {
       "targetedProductPriceQuery": true,
-      "publishedOfferCollection": true
+      "publishedOfferCollection": true,
+      "publishedOfferCatalogDiscovery": true
     },
     "PENNY": {
       "targetedProductPriceQuery": false,
-      "publishedOfferCollection": true
+      "publishedOfferCollection": true,
+      "publishedOfferCatalogDiscovery": false
     },
     "KAUFLAND": {
       "targetedProductPriceQuery": false,
-      "publishedOfferCollection": true
+      "publishedOfferCollection": true,
+      "publishedOfferCatalogDiscovery": false
     },
     "EDEKA": {
       "targetedProductPriceQuery": false,
-      "publishedOfferCollection": true
+      "publishedOfferCollection": true,
+      "publishedOfferCatalogDiscovery": false
     },
     "NETTO_MD": {
       "targetedProductPriceQuery": false,
-      "publishedOfferCollection": true
+      "publishedOfferCollection": true,
+      "publishedOfferCatalogDiscovery": false
     }
   },
   "undecidedMeaning": "No retailer is undecided in this policy revision; false means functionally disallowed, true permitted for development subject to independent legal/source checks.",
@@ -58,5 +68,5 @@
     "unknownSourceRightsMustNeverBePromotedToPermitted": true,
     "userConfirmedReceiptHistoryRemainsSeparate": true
   },
-  "staging": "CAPABILITY_APPROVED_FOR_DEVELOPMENT_ONLY; LIVE_USE_PENDING_SOURCE_SPECIFIC_LEGAL_AND_TECHNICAL_REVIEW"
+  "staging": "CAPABILITY_APPROVED_FOR_DEVELOPMENT_ONLY; PUBLIC_AVAILABILITY_OF_OFFERS_NOT_RIGHTS_GRANT; LIVE_USE_PENDING_SOURCE_SPECIFIC_LEGAL_AND_TECHNICAL_REVIEW"
 }
