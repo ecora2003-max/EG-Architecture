@@ -72,3 +72,9 @@ Jeder Modul-Chat muss über die Fertigstellungskriterien in seinem `AGENTS.md` u
 
 ## 11. Gültigkeitsbereich
 Diese Dokumente werden erst nach Prüfung durch alle Modul-Teams und Codex als stabile Version 1.0.0 freigegeben. Bis dahin gilt `1.0.0-draft` als **gemeinsame Arbeitsannahme**, nicht als unveränderlicher Produktionsvertrag. Jeder fachliche Änderungsvorschlag erhält Ursache, Auswirkungen, Migrations-/Kompatibilitätsbedarf und Tests. Keine stille Vertragsänderung durch ein Fachmodul.
+
+
+## 12. Händlerspezifische Quellfunktionen (verbindliche Präzisierung vom 31.10.2026)
+**ADR-016 konkretisiert und begrenzt** den zuvor pauschal beschriebenen Datenabruf. Die aktuell gewünschte Funktionsmatrix steht verbindlich in [docs/RETAILER_SOURCE_POLICY.md](RETAILER_SOURCE_POLICY.md) und maschinenlesbar in [policies/retailer-source-capabilities.v1.json](../policies/retailer-source-capabilities.v1.json): Gezielte Produktpreisabfragen und Angebote für **ALDI Nord, ALDI Süd, REWE, Lidl**; **nur veröffentlichte Angebote** für **Penny, Kaufland, EDEKA**. Für **Netto Marken-Discount** keine neue Freigabe oder Sperre, frühere Regeln bleiben bestehen. Eigene bestätigte Bons aller Händler gehören zur getrennten privaten historischen Preisquelle.
+
+Diese Entscheidung definiert die **Funktion** und keine pauschale rechtliche Nutzungserlaubnis. Technischer Abruf, Lizenz-/gesetzliche Grundlage, Umfang, Nutzungsbedingungen, Datums-/Filialscope und Produktiv-Anzeige müssen **je konkreter Quelle** belegt sein. Keine automatisierte Massenkatalogerfassung über eine auf Wunsch begrenzte Produktpreisabfrage. Fehlende reguläre Preise sind Datenlücken, keine impliziten Gratis-/Günstigstpreise.
