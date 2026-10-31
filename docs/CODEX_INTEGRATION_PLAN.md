@@ -2,7 +2,7 @@
 
 > **Neueste verbindliche Arbeitsanweisung (ADR-019, 31.10.2026):** Codex soll **keine separaten rechtlichen Recherchen/Prüfprojekte** zu öffentlich beworbenen Händlerpreisen oder Katalogen mehr durchführen, keine neuen Lizenzanfragen anstoßen und die Diskussion nicht ohne ausdrückliche Nutzerinitiative wieder öffnen. Stattdessen Integration und technische Tests fortsetzen. Der bestehende Rights-/Source-Status bleibt wahrheitsgemäß und die technischen Zugriffsgrenzen gelten weiter; dies ist **keine** neue Aufgabe, alle Nutzungsrechte einzeln zu untersuchen. Nicht aktivierte externe Livefeeds dürfen die Offlineintegration nicht blockieren. Details: [ADR-019](ADR_019_NO_SEPARATE_LEGAL_REVIEWS.md).
 
-**Stand 31.10.2026.** **Dieses Dokument ist keine ausgeführte App-Integration.** `Ernaerungsgedaechtnis` ist ausschließlich das Schreibrepository von Codex. Architektur- und Fach-Chats **ändern die Haupt-App nicht**.
+**Stand der ursprünglichen Planung: 31.10.2026.** **Aktueller belegter Host-/Abnehmerstand: [Integrationsaudit 01.11.2026](INTEGRATION_EVIDENCE_2026-11-01.md).** Die untenstehenden Ausgangszahlen sind historische Planungswerte; die Haupt-App hat inzwischen Room 8 und isolierte JVM-geprüfte Ports. **Dieses Dokument selbst ist keine ausgeführte App-Integration.** `Ernaerungsgedaechtnis` ist ausschließlich das Schreibrepository von Codex. Architektur- und Fach-Chats **ändern die Haupt-App nicht**.
 
 ## A. Ausgangslage
 - Haupt-App letztes erfasstes Release `0.9.0-recognition`, Room 7, 35 Tabellen, APK/183 JVM-Tests aus Phase 5; keine aktuelle native Geräte-OCR-Abnahme.
@@ -54,7 +54,7 @@ Beim Android-Port **ADR-016** und [RETAILER_SOURCE_POLICY.md](RETAILER_SOURCE_PO
 ### Präzisierung ADR-018 – Angebotspreise und Katalogquellen (31.10.2026)
 **Die veröffentlichten Angebotspreise sämtlicher acht Händler** sind als projektseitig zu erschließende Daten vorgesehen. Zusätzlich soll der Host **Angebotskatalog-Listen für ALDI Nord, ALDI Süd, Lidl und REWE** als getrennte Fähigkeit nutzen können (einzelne Aktionspositionen mit Gültigkeit, Quelle und Regionsbezug). Für Penny, Kaufland, EDEKA und Netto Marken-Discount **nur Einzel-Angebotspreise**, **keine** Katalog-Erschließung im aktuellen Projektumfang; weiterhin keine gezielte reguläre Produktpreisabfrage.
 
-Kotlin-Gates am `policies/retailer-source-capabilities.v1.json` **Policy-Version 1.0.2** (drei getrennte Booleans) nachweisen; positive und negative Tests pro Händler. Das ändert weder `contracts/v1` noch das noch experimentelle `contracts/v1.1`. **Keine fremden Vollprospektbilder/kompletten Datenbankbestände spiegeln** und APP_DISPLAY-/Nutzungsrechte unabhängig bestätigen. Bei ungeprüften Quellen Deaktivierung einzelner Connectoren, aber kein Stopp der Offlineintegration. Kein selbstständiges Schreiben in Architektur/Modul-Repos.
+Kotlin-Gates am `policies/retailer-source-capabilities.v1.json` **aktuelle kanonische Policy-Version 1.0.3** (drei getrennte Händlerfähigkeiten; zusätzliche ADR-019-Arbeitsdirektiven) nachweisen; positive und negative Tests pro Händler. Das ändert weder `contracts/v1` noch das noch experimentelle `contracts/v1.1`. **Keine fremden Vollprospektbilder/kompletten Datenbankbestände spiegeln** und APP_DISPLAY-/Nutzungsrechte unabhängig bestätigen. Bei ungeprüften Quellen Deaktivierung einzelner Connectoren, aber kein Stopp der Offlineintegration. Kein selbstständiges Schreiben in Architektur/Modul-Repos.
 
 
 ## H. ADR-017: nachgeschärfte Shopping-v1.1-Draft-Adapter (offen)
