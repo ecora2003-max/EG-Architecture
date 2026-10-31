@@ -1,4 +1,7 @@
 # Projektstatus – Architektursteuerung / Chat 1
+
+> **Neue Weisung, 31.10.2026: ADR-019.** Der Nutzer hat jede weitere **separate rechtliche Prüfung/Rechtsrecherche durch Codex/Fachmodule ohne neue Initiative** abbestellt. Alle Offline-/Integrationsarbeiten priorisieren; keine Ressourcen mehr für eigene Rechtsbewertung der Händlerpreise/-kataloge. Bestehende technische Zugriffsschranken und korrekte Rechtekennzeichnung bleiben; keine erfundene `PERMITTED`-Freigabe. Geltende [ADR-019](ADR_019_NO_SEPARATE_LEGAL_REVIEWS.md), Fähigkeitsmatrix Policy 1.0.3; sämtliche alten Arbeitsaufträge für neue Rechtsrecherchen sind in der Zeitplanung nachrangig/entfallen.
+
 **Stand:** 31.10.2026 · **Zuständiges Schreibrepository:** ausschließlich `ecora2003-max/EG-Architecture`.
 
 ## Aktueller Vertragsstand
