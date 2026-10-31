@@ -11,13 +11,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = ROOT / "policies" / "retailer-source-capabilities.v1.json"
 YES_PRICE = {"ALDI_NORD", "ALDI_SUED", "REWE", "LIDL"}
-NO_PRICE = {"PENNY", "KAUFLAND", "EDEKA"}
-UNKNOWN = {"NETTO_MD"}
+NO_PRICE = {"PENNY", "KAUFLAND", "EDEKA", "NETTO_MD"}
+UNKNOWN = set()
 ALL = YES_PRICE | NO_PRICE | UNKNOWN
 
 def main():
     data = json.loads(POLICY.read_text(encoding="utf-8"))
-    assert data["policyVersion"] == "1.0.0"
+    assert data["policyVersion"] == "1.0.1"
     assert data["category"] == "PROJECT_FUNCTIONAL_CAPABILITY_NOT_LEGAL_PERMISSION"
     cap = data["retailerCapabilities"]
     assert set(cap) == ALL, "Retailer names missing or unexpected"
@@ -48,7 +48,7 @@ def main():
     assert all(gate.get(k) is True for k in required), "Source safety gate missing"
     checks += len(required)
     assert "DEVELOPMENT_ONLY" in data["staging"]
-    print(f"PASS: {checks} retailer capability / safety gate assertions; 4 price+offer, 3 offer-only, 1 unchanged.")
+    print(f"PASS: {checks} retailer capability / safety gate assertions; 4 price+offer, 4 offer-only.")
     print("NOTE: this is policy configuration validation, not proof of a retailer API or legal permission.")
 
 if __name__ == "__main__":
