@@ -17,7 +17,7 @@ ALL = YES_PRICE | NO_PRICE | UNKNOWN
 
 def main():
     data = json.loads(POLICY.read_text(encoding="utf-8"))
-    assert data["policyVersion"] == "1.0.2"
+    assert data["policyVersion"] == "1.0.3"
     assert data["category"] == "PROJECT_FUNCTIONAL_CAPABILITY_NOT_LEGAL_PERMISSION"
     cap = data["retailerCapabilities"]
     assert set(cap) == ALL, "Retailer names missing or unexpected"
@@ -49,9 +49,21 @@ def main():
     )
     assert all(gate.get(k) is True for k in required), "Source safety gate missing"
     checks += len(required)
-    assert "DEVELOPMENT_ONLY" in data["staging"]
+    workflow = data["workflowDirectives"]
+    expected = {
+        "separateLegalResearchByCodex": False,
+        "separateLegalResearchByModules": False,
+        "furtherLegalReviewRequiresUserInitiative": True,
+        "noStandaloneLegalWorkstream": True,
+        "continueOfflineIntegrationWithoutExternalLiveSource": True,
+        "doNotInventExternalSourcePermissions": True,
+    }
+    assert all(workflow.get(key) is value for key, value in expected.items())
+    assert workflow["decisionReference"] == "ADR-019"
+    checks += len(expected) + 1
+    assert "FUNCTIONAL_SCOPE_APPROVED_FOR_DEVELOPMENT" in data["staging"]
     print(f"PASS: {checks} retailer capability / safety gate assertions; 4 price+offer+catalog, 4 offer-only.")
-    print("NOTE: this is policy configuration validation, not proof of a retailer API or legal permission.")
+    print("NOTE: no separate legal research is assigned; source safeguards remain, and CI is no live-use permission.")
 
 if __name__ == "__main__":
     main()
