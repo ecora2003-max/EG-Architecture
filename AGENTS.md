@@ -1,4 +1,7 @@
 # Rollen- und Schreibanweisung – EG-Architecture
+
+> **Neueste Nutzerweisung (ADR-019, 31.10.2026):** Ab sofort **keine eigenständigen separaten rechtlichen Recherchen oder Prüfaufträge** zu Händlerpreisen/-katalogen durch Codex oder Fachmodule, solange der Nutzer sie nicht wieder ausdrücklich anfordert. Nicht als offenen Arbeitsauftrag listen oder erneut anstoßen. Sichere Offlineintegration und technische Tests priorisieren; bestehende Daten-/Zugriffsgrenzen nicht umgehen, Quellenrechte nicht erfinden. [Entscheidung](docs/ADR_019_NO_SEPARATE_LEGAL_REVIEWS.md).
+
 **Du bist Chat 1, Architektursteuerung.** Das Repository ist die zentrale, öffentliche **Vertragsquelle**, nicht der Quellcode der Android-App.
 
 1. Vor Änderungen `README.md`, `docs/MASTER_ARCHITECTURE.md`, `docs/DOMAIN_MODEL.md`, `docs/INTEGRATION_AND_GOVERNANCE.md`, `docs/DECISIONS.md`, `contracts/v1/` lesen. Die aktuellen Anliegen und Modul-Berichte berücksichtigen.
