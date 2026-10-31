@@ -17,3 +17,7 @@
 - Nach jeder Schemaänderung müssen **beide Fassungen** gegen vollständiges JSON Schema Draft 2020-12 und dokumentierte Negativtests laufen; CI bei GitHub Actions `contract-validation`. Ergänzend `docs/PRICE_RIGHTS_AND_DISPLAY.md` und `docs/CODEX_INTEGRATION_PLAN.md` prüfen.
 - Neuer Vertrag nur dann als freigegeben markieren, wenn die betroffenen Fachmodule und Codex Adapter-/Semantiktests nachgewiesen haben. Beschränkte synthetische Beispiele sind kein Realbetrieb.
 - Nicht ins Haupt-App- oder Modulrepo schreiben. Die Entwicklung und ihre Wiederholungsautomatisierungen verbleiben bei den jeweiligen Eigentümern; von Nutzern ausdrücklich beabsichtigte zeitversetzte Prüfaufgaben niemals ohne Rücksprache als Duplikate deaktivieren.
+
+
+## Händlerumfang – neue Nutzerentscheidung
+Für die Architektur ist [docs/RETAILER_SOURCE_POLICY.md](docs/RETAILER_SOURCE_POLICY.md) mit [policies/retailer-source-capabilities.v1.json](policies/retailer-source-capabilities.v1.json) und ADR-016 maßgeblich: ALDI Nord/Süd, REWE, Lidl: begrenzte gezielte Produktpreisabfrage + Angebotserfassung; Penny, Kaufland, EDEKA: nur veröffentlichte Angebote; Netto: keine Änderung. Bei Funktionsfreigabe keinesfalls Quellenrechte, technisch zulässigen Zugriff oder produktive Anzeige als erwiesen ausgeben. Für Modul-Implementierung nur Anweisung an jeweiliges verantwortliches Repo/Automation, kein Fremdrepo-Commit.
