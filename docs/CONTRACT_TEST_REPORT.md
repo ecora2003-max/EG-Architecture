@@ -1,32 +1,32 @@
-# Vertragsprüfung – Stand 31.10.2026
-**Geprüfter Vertrag:** `contracts/v1/contract.schema.json` mit `contractVersion=1.0.0-draft`.
+# Vertragstests – 31.10.2026
 
-## Tatsächlich ausgeführte Prüfung
-In einer isolierten JavaScript-Prüfroutine wurden die **direkt aus GitHub gelesenen aktuellen** `contract.schema.json` und `examples.json` geparst. Geprüft wurden tatsächlich vorhandene JSON-Schema-Elemente: `$ref`, `type`, `required`, `enum`, `const`, `minimum/maximum`, `properties`, `additionalProperties`, `anyOf`, `allOf`, `if/then`, `format` (grundlegende Syntax) und Arrays.
+## Verifizierter aktueller CI-Nachweis
+**GitHub Actions [Run 41224097675](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41224097675)**, Job `validate` (Job-ID `124604509848`), Status `completed/success`. Das vollständige Joblog wurde direkt gelesen; exakte Ausgabe des Python-Programms:
 
-**Ergebnis:** 5/5 positive Beispiele akzeptiert, 6/6 bewusst beschädigte Nachrichten abgewiesen:
-1. negative Preis-Cents,
-2. Filialpreis ohne bestätigte `storeId`,
-3. unzulässiger Bio-String,
-4. Bonposition ohne `rawText`,
-5. Rezept-Flag als String statt boolesch,
-6. Rezept mit null Portionen.
+```text
+PASS v1: 5 positive, 7 negative; schema + semantic gates
+PASS v1.1: 9 positive, 17 negative; schema + semantic gates
+PASS all versions: 14 positive, 24 negative
+```
 
-**Wichtig:** Die ausgeführte JS-Routine ist eine **teilweise Schema-Kontrolle**, **keine vollständige JSON-Schema-2020-12-Implementierung**. Sie beweist strukturelle Plausibilität, nicht die Konformität sämtlicher noch nicht getesteter JSON-Schema-Sonderfälle.
+Ausführung über `.github/workflows/contract-validation.yml` mit gepinntem `jsonschema[format]==4.23.0`, `Draft202012Validator.check_schema`, `FormatChecker`, `tools/validate_contract.py`. Es handelt sich um **tatsächlich ausgeführte** automatische Vertragsprüfungen und Negativtests, nicht nur um eine manuelle Teilkontrolle.
 
-## Reproduzierbarer Vollvalidator
-Im Repository sind `requirements-dev.txt` und `tools/validate_contract.py` abgelegt. Zur **separaten vollen Prüfung** auf einem Rechner mit Python:
+## Vertragliche Bedeutung
+- **Version `1.0.0-draft`**: ursprüngliche fünf Nachrichtentypen und 5+7 Tests; Nachrichten und Schema wurden nicht geändert.
+- **Version `1.1.0-draft`**: neun Typen inklusive vier neuer Shopping-DTOs und 9+17 Tests. Externe Quellen- und Nutzerrechtsregeln sind fachlich in `docs/PRICE_RIGHTS_AND_DISPLAY.md` definiert.
+- Cross-field-Gates der Testsoftware: datierte Entscheidungen dürfen nicht vor ihrem Snapshot liegen; historische Preisdaten dürfen nicht nach dem Kauf beobachtet sein; Status `PROVEN` setzt passend belegte Alternativen und bekannte Ersparnis voraus.
+- Zusätzliche lokale Schema-Kontrolle direkt nach dem Anlegen: 9/9 Beispiele akzeptiert, 10/10 syntaktisch/strukturell absichtlich falsche Nachrichten abgewiesen. Diese Kontrolle war **nur teilweise** schemaäquivalent und wird **nicht** statt des obigen Python-Validators als vollständiger Testnachweis zitiert.
 
-```bash
+## Offen vor stabiler Freigabe
+1. Die vier Modul-Chats und Codex haben die neuen `v1.1`-Nachrichten **noch nicht verbindlich als Adapter-API integriert und abgenommen**; darum bleibt `1.1.0-draft` unfrei.
+2. Die Schema-Tests beweisen das Nachrichtenformat und selektierte Invarianten, **nicht** die Korrektheit vollständiger App-/Room-Adapter, realer Daten oder des Android-Gerätes.
+3. Nutzungsrechte externer Händlerdaten sind weiterhin ungesichert; die vollständige `APP_DISPLAY`-Schranke muss durch Preisdaten, Einkaufsintelligenz und Codex mit eigenen Negativtests belegt werden.
+4. Der letzte produktive Haupt-App-Stand wurde hier **nicht verändert oder integriert**; die fertige Offline-Engine erfordert weiterhin Kotlin-Integration durch Codex.
+
+**Freigabestatus:** `DRAFT_CI_VERIFIED`. Keine Behauptung `STABLE`, `APP_INTEGRATED` oder `LIVE_SOURCE_VERIFIED`.
+
+## Reproduktion
+```sh
 python -m pip install -r requirements-dev.txt
 python tools/validate_contract.py
 ```
-
-Das Skript benutzt `jsonschema.Draft202012Validator` und kontrolliert 5 positive und 7 negative Fälle. **Dieser Python-Befehl wurde bei der Erstellung dieser Dokumentation noch nicht ausgeführt**; daher kein erfundener Pass-Nachweis. Eine Ausführung/CI-Prüfung samt Commit-SHA ist vor stabiler Vertragsfreigabe nachzuholen.
-
-## Vertragsfreigabe
-**Status: `DRAFT_STRUCTURALLY_CHECKED`, nicht `STABLE` / `INTEGRATED`.**
-Noch offen: Standardvalidierung per Python gegen vollständiges Repo-Checkout, alle modulindividuellen Abnehmerprüfungen, Semantiktests für Kurs-/Mengen-/Rabattkonstellationen und Integrationsprüfung durch Codex.
-
-## Fehlerkriterien für kommende Releases
-Negativer Preis darf nicht als gültige Beobachtung durchgehen; unbekannter Preis darf nicht als null Euro gelten; fehlender Bio-Status darf nicht in „konventionell“ umgewandelt werden; Marktscope darf ohne Markt-ID nicht `STORE_CONFIRMED` heißen; Rezeptvorschlag darf keinen Ist-Vorgang auslösen; Kaufzeitpunkt muss für historische Sparvergleiche belegt sein.
