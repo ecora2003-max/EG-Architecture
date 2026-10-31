@@ -1,5 +1,5 @@
 {
-  "policyVersion": "1.0.0",
+  "policyVersion": "1.0.1",
   "decidedAt": "2026-10-31",
   "category": "PROJECT_FUNCTIONAL_CAPABILITY_NOT_LEGAL_PERMISSION",
   "uses": [
@@ -40,11 +40,11 @@
       "publishedOfferCollection": true
     },
     "NETTO_MD": {
-      "targetedProductPriceQuery": null,
-      "publishedOfferCollection": null
+      "targetedProductPriceQuery": false,
+      "publishedOfferCollection": true
     }
   },
-  "undecidedMeaning": "null = no new user decision; preserve previous technical and legal restrictions; do not infer authorization or prohibition",
+  "undecidedMeaning": "No retailer is undecided in this policy revision; false means functionally disallowed, true permitted for development subject to independent legal/source checks.",
   "executionGates": {
     "lawfulAccessRequired": true,
     "sourceTermsAndDatabaseRightsPerSource": true,
