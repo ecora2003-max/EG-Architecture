@@ -1,5 +1,8 @@
 # Verbindlicher fachlicher Händlerumfang – 31.10.2026
 
+> **Arbeitspriorität ADR-019 (31.10.2026):** Der Auftraggeber hat eigenständige **weitere juristische Prüfungen/Recherchen durch Codex und die Fachmodule ausdrücklich abbestellt**, sofern er sie nicht neu beauftragt. Die nachfolgenden Quellen-/Nutzungsregeln beschreiben technische Wahrheits- und Zugriffsgrenzen, **keinen Auftrag**, neue Rechtsanalysen zu starten. Die acht Händler-Angebotspreise und die vier Katalogquellen bleiben verbindlicher Entwicklungsumfang. [ADR-019](ADR_019_NO_SEPARATE_LEGAL_REVIEWS.md).
+
+
 **Architekturentscheidung zur gewünschten Funktionalität, keine Feststellung einer Nutzungslizenz.** Maschinenlesbare Matrix: [retailer-source-capabilities.v1.json](../policies/retailer-source-capabilities.v1.json).
 
 ## Gewünschter Funktionsumfang
