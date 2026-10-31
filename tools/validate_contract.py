@@ -144,7 +144,10 @@ def negative_cases(examples):
         add("header product must match package line", suggestion, ["payload", "productId"], "OTHER-FAKE-PRODUCT")
         add("header pack count must match package line", suggestion, ["payload", "packageCount"], 2)
         add("reversed budget dates", suggestion, ["payload", "budgetPeriod", "from"], "2026-11-08")
-        add("unproven suggestion cannot be feasible", suggestion, ["payload", "status"], "FEASIBLE_NOT_PURCHASED")
+        unproven = copy.deepcopy(suggestion)
+        unproven["payload"]["status"] = "FEASIBLE_NOT_PURCHASED"
+        unproven["payload"]["capacityEvidence"] = None
+        negatives["feasible suggestion requires known capacity"] = unproven
         add("historical savings is merchandise only", past, ["payload", "savingsBasis"], "CHECKOUT")
         add("historical savings requires explicit basis", past, ["payload", "savingsBasis"], Ellipsis)
         proven_zero = copy.deepcopy(past)
