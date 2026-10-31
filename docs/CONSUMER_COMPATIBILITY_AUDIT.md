@@ -1,6 +1,13 @@
 # Abnehmer-Kompatibilitätsprüfung – Vertrag 1.1.0-draft
 **Momentaufnahme:** 31.10.2026, 18:03 UTC. **Erstellt durch Chat 1, Architektursteuerung.**
 
+## Neuere Abnehmerbeobachtung – 31.10.2026, ab 18:04 UTC
+**Die Einkaufsintelligenz hat die veraltete v1.1-Testkopie inzwischen ersetzt:** Die aktuelle `contracts/v1.1/contract.schema.json` hat jetzt ebenfalls Blob-SHA `dca777d219307a90bf3d4dff6189fbf12476c508`. Damit ist der reine **Schema-Datei-Gleichstand** hergestellt. Der Draft-Adapter wurde ebenfalls von der vorherigen `mix[]`-Extension auf typisierte `packageLines[]` umgestellt.
+
+**Die Abnehmer-Implementierungsfreigabe ist weiterhin offen:** Der grüne [Run 41227548850](https://github.com/ecora2003-max/EG-Einkaufsintelligenz/actions/runs/41227548850) mit 107/107 Tests gehört zu einem Commit mit neuer Schema-Kopie, aber **ohne die spätere vollständig typisierte `packageLines[]`-Implementierung**. Folgende Erweiterungs-Commits hatten zunächst rote CI. Beispielsweise beanstandete [Run 41227606242](https://github.com/ecora2003-max/EG-Einkaufsintelligenz/actions/runs/41227606242) die Annahme, `examples.json` müsse 11 Kanonbeispiele enthalten. Korrekt sind **9 kanonische Envelopes + 2 programmgenerierte Positivfälle im Architekturvalidator = 11 positive v1.1-Tests**. Vor einer v1.1-Abnahme **neuesten Modul-Head und erfolgreiche zugehörige vollständige CI erneut prüfen**; einen früheren grünen Test nicht als Nachweis für neueren Code verwenden.
+
+Die nachfolgende Tabelle bewahrt den **datierten ursprünglichen** SHA-Audit-Befund, einschließlich der damals tatsächlich noch veralteten Schema-Kopie. Bei der Integrationsentscheidung gilt diese neuere Beobachtung vorrangig.
+
 ## Maßstab
 - Ursprüngliches `contracts/v1/contract.schema.json`: Blob-SHA `bedde4677342817fe6b883962c8dfbbd60100072` (`1.0.0-draft`).
 - Aktuelles, nach ADR-017 nachgeschärftes `contracts/v1.1/contract.schema.json`: Blob-SHA `dca777d219307a90bf3d4dff6189fbf12476c508` (`1.1.0-draft`, **nicht stabil freigegeben**).
