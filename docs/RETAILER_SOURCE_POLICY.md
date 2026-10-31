@@ -13,9 +13,9 @@
 | Penny | **Nein** | **Ja** |
 | Kaufland | **Nein** | **Ja** |
 | EDEKA | **Nein** | **Ja** |
-| Netto Marken-Discount | **Keine neue Entscheidung** | **Keine neue Entscheidung** |
+| Netto Marken-Discount | **Nein** | **Ja** |
 
-**Geltungsbereich:** „Ja“ bedeutet *fachlich zur Implementierung vorgesehen* und *bei zulässiger Quelle nutzbar*, nicht automatisch „Datenabruf rechtlich freigegeben“. „Nein“ schließt diese Funktion für den genannten Händler im neuen Projektumfang aus, auch wenn ein früherer Forschungsadapter technisch Preise abrufen konnte. `null` (Netto) verändert weder bisherige Forschungs-/Angebotsadapter noch vorhandene Sperren; es wird keine neue Freigabe erteilt.
+**Geltungsbereich:** „Ja“ bedeutet *fachlich zur Implementierung vorgesehen* und *bei zulässiger Quelle nutzbar*, nicht automatisch „Datenabruf rechtlich freigegeben“. „Nein“ schließt diese Funktion für den genannten Händler im neuen Projektumfang aus, auch wenn ein früherer Forschungsadapter technisch Preise abrufen konnte. Netto Marken-Discount ist jetzt ebenfalls **nur für die Angebotserfassung**, nicht für gezielte reguläre Preisabfragen vorgesehen. Bestehende Forschungsergebnisse bleiben erhalten; eine Produktivfreigabe folgt daraus nicht.
 
 ## Präzise Trennung
 
@@ -36,8 +36,8 @@
 ## Pflicht-Tests
 
 - **Vier positive Zielhändler:** Gezielte, exakt begrenzte Produktpreisanfragen und Angebotserfassung für ALDI Nord/Süd, REWE, Lidl im Policy-Gate erlaubt; Rechts-/Quellprüfung für Produktivabruf separat nachweisen.
-- **Drei Negativhändler:** Gezielte Produktpreisabfragen Penny, Kaufland, EDEKA werden vom Funktions-Policy-Gate zurückgewiesen – auch wenn ein Preis-HTTP-Endpoint zufällig existiert. Ihre veröffentlichten Angebote werden funktional akzeptiert, falls Datums-/Quellen-/Rechtsbelege vorhanden.
-- **Netto:** `null` führt zu keiner positiven Erlaubnisbehauptung. Bestehende technische Recherche/Schranken unverändert.
+- **Vier Negativhändler:** Gezielte Produktpreisabfragen Penny, Kaufland, EDEKA und Netto Marken-Discount werden vom Funktions-Policy-Gate zurückgewiesen – auch wenn ein Preis-HTTP-Endpoint zufällig existiert. Ihre veröffentlichten Angebote werden funktional akzeptiert, falls Datums-/Quellen-/Rechtsbelege vorhanden.
+- **Netto:** Nur veröffentlichte Angebote sind funktional vorgesehen; keine gezielte reguläre Einzelpreisabfrage. Das gilt auch für bereits vorhandene experimentelle Preisparser. Vor produktiver Nutzung sind Rechts- und Quellenprüfungen erforderlich.
 - **Rechte:** Jeder Funktionsfall mit `UNVERIFIED`/`RESTRICTED` Quelle darf nicht ohne dokumentierte Klärung als produktive App-Anzeige/Live-Nutzung durchgehen; kein Datenverlust, kein stilles Umschreiben in `PERMITTED`.
 - **Vergleiche:** Gemischte Händler, fehlende Normalpreisquellen, unbekannter Bio-Status, unbekannte Menge, alte Angebote, nur eine Filiale, Coupon-/App-Bedingungen, getrennte historische Bons, doppelte OCR-Scans und No-Side-Effects.
 - **Echte Abnahme:** Ausführbarer Testcode, synthetische Fixtures und CI-Nachweise je geänderter Modulimplementierung. Keine Freigabe aufgrund dieser Dokumentation allein.
