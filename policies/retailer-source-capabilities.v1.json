@@ -1,5 +1,5 @@
 {
-  "policyVersion": "1.0.2",
+  "policyVersion": "1.0.3",
   "decidedAt": "2026-10-31",
   "category": "PROJECT_FUNCTIONAL_CAPABILITY_NOT_LEGAL_PERMISSION",
   "uses": [
@@ -68,5 +68,15 @@
     "unknownSourceRightsMustNeverBePromotedToPermitted": true,
     "userConfirmedReceiptHistoryRemainsSeparate": true
   },
-  "staging": "CAPABILITY_APPROVED_FOR_DEVELOPMENT_ONLY; PUBLIC_AVAILABILITY_OF_OFFERS_NOT_RIGHTS_GRANT; LIVE_USE_PENDING_SOURCE_SPECIFIC_LEGAL_AND_TECHNICAL_REVIEW"
+  "staging": "FUNCTIONAL_SCOPE_APPROVED_FOR_DEVELOPMENT; NO_SEPARATE_LEGAL_RESEARCH_WITHOUT_USER_INITIATIVE; LIVE_USE_NEEDS_EXISTING_TECHNICAL_AND_SOURCE_SAFETY_GATES",
+  "workflowDirectives": {
+    "separateLegalResearchByCodex": false,
+    "separateLegalResearchByModules": false,
+    "furtherLegalReviewRequiresUserInitiative": true,
+    "noStandaloneLegalWorkstream": true,
+    "continueOfflineIntegrationWithoutExternalLiveSource": true,
+    "doNotInventExternalSourcePermissions": true,
+    "decisionReference": "ADR-019",
+    "scope": "Planning/workflow decision; no change to access safeguards or proof of third-party reuse rights."
+  }
 }
