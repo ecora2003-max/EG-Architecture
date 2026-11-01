@@ -84,3 +84,19 @@ PASS evidence-ledger consistency: 12 scenarios, 9 pinned full-call cases, 6 nega
 ```
 
 **Reproduktion:** `python -m pip install -r requirements-dev.txt && python tools/validate_contract.py && python tools/validate_retailer_source_policy.py && python tools/validate_shopping_parity_evidence.py`. Das neue Ledger validiert nur Nachweis-Kohärenz (12 Szenarien, neun referenzierte Test-IDs, offene Gates und sechs absichtlich falsche Manifestmutationen). **Es führt keine Python-`compare_prices`-Aufrufe, keine Kotlin-/Room-/Gerätetests und keine externen Quellenprüfungen aus.** Der unabhängige Host-CI-Nachweis der neun echten Full-call-Vektoren steht in [Shopping-Paritätsgate](SHOPPING_COMPARE_PARITY_GATE.md). Vertrags-Schema-Blobs unverändert, `1.1.0-draft` nicht freigegeben.
+
+## Rezept-Host-Evidenzregister (01.11.2026, 05:20 MEZ)
+
+[Architektur-CI 41272823110](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41272823110), Commit `4b708914840933b441f206729196428692d58051`, Job `124748912712`, `completed/success`, Log direkt geprüft:
+
+```text
+PASS v1: 5 positive, 7 negative; schema + semantic gates
+PASS v1.1: 11 positive, 35 negative; schema + semantic gates
+PASS all versions: 16 positive, 42 negative
+PASS: 42 retailer capability / safety gate assertions; 4 price+offer+catalog, 4 offer-only.
+PASS evidence-ledger consistency: 12 scenarios, 9 pinned full-call cases, 6 negative mutations
+PASS host-pipeline evidence ledger: 3 partial pipelines, 28 shared full-function calls, 8 negative mutations
+PASS recipe-host evidence ledger: 2 partial gates, 4 new JVM tests, 11 negative mutations
+```
+
+**Reproduktion:** `python -m pip install -r requirements-dev.txt && python tools/validate_contract.py && python tools/validate_retailer_source_policy.py && python tools/validate_shopping_parity_evidence.py && python tools/validate_shopping_host_pipeline_evidence.py && python tools/validate_recipe_host_evidence.py`. Der letzte Validator liest ein **statisches** Host-CI-Evidenzmanifest; er führt keine Rezept-Kotlin-/Room-/Android-Tests aus. Die vier neuen Rezepttests und 290/290 JVM-Gesamtprüfungen sind separat im [Host-Run 41271956493](https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41271956493) belegt. Keine Änderung an Vertrags-Schemas oder Händler-Policy, keine stabile oder produktive Freigabe.
