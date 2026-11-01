@@ -23,3 +23,7 @@ Die drei [synthetischen Room-/FoodStore-Tests](https://github.com/ecora2003-max/
 4. **Android-Instrumentation tatsächlich ausführen**: UI-/Bestätigungsgrenzen, Kamera/OCR nur soweit betroffen, Offline-/Datenschutz-/Geräte-/optional Modellverfügbarkeit. `compileDebugAndroidTestKotlin` ist kein ausgeführter Gerätetest.
 
 **Freigabegrenze:** `RECIPE_JSON_IMPORT_VERIFIED=false`, `RECIPE_GENERATOR_HOST_PARITY_VERIFIED=false`, `PRODUCTION_REGISTRIES_VERIFIED=false`, `ANDROID_DEVICE_VERIFIED=false`, `INTEGRATED=false`. Maschinenlesbarer statischer Nachweis: [recipe-host-evidence.v1.json](../policies/recipe-host-evidence.v1.json). Der lokale Validator verifiziert ausschließlich Konsistenz der dokumentierten Pins und Freigabegates, **nicht** die externen CI-Läufe selbst. Keine fremden Repositories beschrieben.
+
+## Eigener Architektur-Konsistenztest
+
+[GitHub Actions 41272823110](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41272823110), Code-/Workflow-SHA `4b708914840933b441f206729196428692d58051`, Job `124748912712`, `completed/success`. Tatsächliche Ausgabe: `PASS recipe-host evidence ledger: 2 partial gates, 4 new JVM tests, 11 negative mutations`; parallel 16 positive/42 negative Vertragsfälle und 42 Händler-Policy-Gates. **Die vier JVM-Tests wurden in der Host-CI 41271956493 ausgeführt, nicht im Architekturvalidator.** Das eigene Skript prüft lediglich die statischen Belege, inklusive elf bewusst fehlerhafter Varianten.
