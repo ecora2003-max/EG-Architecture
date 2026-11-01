@@ -24,3 +24,6 @@
 
 ## Händlerumfang – neue Nutzerentscheidung
 Für die Architektur ist [docs/RETAILER_SOURCE_POLICY.md](docs/RETAILER_SOURCE_POLICY.md) mit [policies/retailer-source-capabilities.v1.json](policies/retailer-source-capabilities.v1.json) und ADR-016 maßgeblich: ALDI Nord/Süd, REWE, Lidl: begrenzte gezielte Produktpreisabfrage + Angebotserfassung; Penny, Kaufland, EDEKA und Netto Marken-Discount: nur veröffentlichte Angebote; keine gezielte reguläre Preisabfrage. Bei Funktionsfreigabe keinesfalls Quellenrechte, technisch zulässigen Zugriff oder produktive Anzeige als erwiesen ausgeben. Für Modul-Implementierung nur Anweisung an jeweiliges verantwortliches Repo/Automation, kein Fremdrepo-Commit.
+
+## GitHub-Sichtbarkeit – verifiziert 01.11.2026
+Die GitHub-Repositorymetadaten weisen für `ecora2003-max/Ernaerungsgedaechnis` aktuell `visibility=public` aus. Die ältere Bezeichnung „privates Hauptrepo“ oben beschreibt **keinen verifizierten Zugriffsschutz**. Die Schreibzuständigkeit bleibt unverändert ausschließlich bei Codex; keine echten persönlichen Bons, Profile, Tokens oder produktiven Daten in das öffentlich sichtbare Repo committen. Keine eigenständige Änderung der Repository-Sichtbarkeit.

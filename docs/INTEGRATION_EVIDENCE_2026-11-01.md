@@ -32,3 +32,10 @@
 ## 4. Freigabeentscheidung
 
 **Nicht `STABLE`, nicht vollständig `JVM_INTEGRATION_VERIFIED`, nicht `ANDROID_DEVICE_VERIFIED`, nicht `INTEGRATED`.** Die neuesten Belege zeigen wesentliche echte Teilfortschritte der privaten Android-App, aber gerade die sicherheitskritische **Verkettung** und vollständige Fachparität fehlen. Bestehende Rechte-/Zugriffsgates bleiben, ohne neue separate rechtliche Recherche gemäß ADR-019. Kein Vertragsschema oder Fremdrepository wurde in diesem Audit geändert.
+
+
+## 5. Neuerer, direkt aus Joblog verifizierter Host-Nachweis (01.11.2026, ca. 02:20 MEZ)
+
+Die frühere Momentaufnahme von 220 Tests und isolierten Ports oben ist historisch; der neuere Host-Code-/Test-Commit `acc34002654aedf025eddfb612912290d8137ac5` hat [Run 41259852796](https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41259852796), Job `124710754809`, `completed/success`: **249/249 JVM-Tests aus 34 JUnit-XML, sieben befüllte Room-Migrationen, null Failures/Errors/Skips, 9/9 echte Python-`compare_prices`-Gesamtaufrufe** mit neun gemeinsamen synthetischen Kotlin-Host-Fixtures. Das Joblog wurde direkt eingesehen. `SALE` aus gezielter Preisabfrage und datierte `otherDayOffers` sind im Host-Kotlin mit unabhängigen Sicherheitsgates ergänzt. **Kein** vollständiger 12-Fälle-Nachweis, keine produktiven Quellen, keine Geräteausführung oder Gesamtfreigabe.
+
+Das [Abnahmeregister](../policies/shopping-compare-acceptance.v1.json) trennt Full-call-Teilbelege, isolierte Host-JVM-Regressionsfälle und offene E2E-Gates; sein CI-Validator ist eine **statische Evidenzkonsistenzprüfung**, kein Ersatz für Python-/Kotlin-Paritätstests. Der Policy-Drift 1.0.1→1.0.3 in zwei Fachmodulen ist unverändert. GitHub meldet das Hauptrepo aktuell als **öffentlich sichtbar**; die frühere Charakterisierung als privat ist nicht als Zugriffsschutz belegbar.

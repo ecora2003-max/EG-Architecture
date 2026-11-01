@@ -1,0 +1,173 @@
+{
+  "manifestVersion": "1.0.0",
+  "assessedOn": "2026-11-01",
+  "scope": "SYNTHETIC_FULL_COMPARE_PARITY_AND_INTEGRATION",
+  "status": "PARTIAL_HOST_JVM_VERIFIED_NOT_INTEGRATED",
+  "reference": {
+    "architecturePolicyVersion": "1.0.3",
+    "preisdatenPolicyVersion": "1.0.1",
+    "einkaufsintelligenzPolicyVersion": "1.0.1",
+    "policyParityVerified": false,
+    "pythonReferenceCommit": "a3e13b147124ad7c25698a695e2ab42d7299a58a"
+  },
+  "hostEvidence": {
+    "repo": "ecora2003-max/Ernaerungsgedaechnis",
+    "codeTestCommit": "acc34002654aedf025eddfb612912290d8137ac5",
+    "reviewedHead": "de9a55ec700961182bc70aac9dfdc7a786baa232",
+    "ciRunUrl": "https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41259852796",
+    "fixturePath": "app/src/test/resources/integration/shopping_full_compare_v1.tsv",
+    "fixtureBlobSha": "27f9a23679727ed793ad20a9c089ce04ea99ba67",
+    "jvmTests": 249,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "roomMigrationTests": 7,
+    "pythonFullCompareCalls": 9,
+    "fullCallCaseIds": [
+      "same_bio",
+      "different_bio",
+      "both_signals",
+      "exact_rate_tie",
+      "fractional_delta",
+      "unknown_organic",
+      "unknown_deposit",
+      "no_cheaper",
+      "targeted_sale"
+    ]
+  },
+  "releaseGates": {
+    "fullCompareParityVerified": false,
+    "hostRegistriesProductionVerified": false,
+    "androidDeviceVerified": false,
+    "liveSourcesVerified": false,
+    "integrated": false
+  },
+  "scenarios": [
+    {
+      "id": "01",
+      "title": "Same-bio cheaper and non-cheaper control",
+      "state": "PARTIAL_FULL_CALL",
+      "sharedCases": [
+        "same_bio",
+        "no_cheaper"
+      ],
+      "missing": [
+        "No exhaustive invalid-target or scope variants in shared full-call vectors"
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Different-bio cheaper and simultaneous red/orange",
+      "state": "PARTIAL_FULL_CALL",
+      "sharedCases": [
+        "different_bio",
+        "both_signals"
+      ],
+      "missing": [
+        "Not all retailer and substitution variants covered by shared full calls"
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Unknown organic and grey with incomplete coverage",
+      "state": "PARTIAL_FULL_CALL",
+      "sharedCases": [
+        "unknown_organic",
+        "both_signals",
+        "unknown_deposit"
+      ],
+      "missing": [
+        "Coverage-incomplete full-call vector not yet demonstrated"
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Exact rational sorting and fractional cent delta",
+      "state": "PARTIAL_FULL_CALL",
+      "sharedCases": [
+        "exact_rate_tie",
+        "fractional_delta"
+      ],
+      "missing": [
+        "Additional malformed amount and overflow full-call vectors pending"
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Quantity, unit, product-version and attribute rejection",
+      "state": "HOST_JVM_ONLY",
+      "sharedCases": [],
+      "missing": [
+        "Shared Python full-call negative parity vector absent"
+      ]
+    },
+    {
+      "id": "06",
+      "title": "Rights, store, scope and version fail-closed",
+      "state": "HOST_JVM_ONLY",
+      "sharedCases": [],
+      "missing": [
+        "Shared Python full-call negative parity and grant-scope vectors absent"
+      ]
+    },
+    {
+      "id": "07",
+      "title": "As-of cutoff, expired/future sale and historical price",
+      "state": "HOST_JVM_ONLY",
+      "sharedCases": [],
+      "missing": [
+        "Other-day host JVM tests exist; shared Python full-call date vectors absent"
+      ]
+    },
+    {
+      "id": "08",
+      "title": "Coupon, conditions, deposit and checkout uncertainty",
+      "state": "PARTIAL_FULL_CALL",
+      "sharedCases": [
+        "unknown_deposit"
+      ],
+      "missing": [
+        "Coupon, multi-buy and unverified checkout full-call vectors absent"
+      ]
+    },
+    {
+      "id": "09",
+      "title": "Confirmed substitution registry and forged match",
+      "state": "HOST_JVM_ONLY",
+      "sharedCases": [],
+      "missing": [
+        "Shared full-call substitution vectors and host-registry integration absent"
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Duplicate IDs, invalid target and candidate limit",
+      "state": "HOST_JVM_ONLY",
+      "sharedCases": [],
+      "missing": [
+        "Shared full-call error normalization and 256-limit vectors absent"
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Four price-query and four offer-only retailers; catalog gate",
+      "state": "PARTIAL_FULL_CALL",
+      "sharedCases": [
+        "targeted_sale"
+      ],
+      "missing": [
+        "Eight-retailer capability matrix not yet in shared full-call fixture",
+        "Vendor policy 1.0.1 drift persists"
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Receipt draft to confirmed purchase, price history and need projection",
+      "state": "OPEN",
+      "sharedCases": [],
+      "missing": [
+        "Host transactional end-to-end chain and retry/reversal evidence absent"
+      ]
+    }
+  ]
+}

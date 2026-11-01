@@ -6,6 +6,7 @@ on:
       - 'policies/**'
       - 'tools/validate_contract.py'
       - 'tools/validate_retailer_source_policy.py'
+      - 'tools/validate_shopping_parity_evidence.py'
       - 'requirements-dev.txt'
       - '.github/workflows/contract-validation.yml'
   pull_request:
@@ -35,3 +36,5 @@ jobs:
         run: python tools/validate_contract.py
       - name: Validate retailer functional capability matrix
         run: python tools/validate_retailer_source_policy.py
+      - name: Validate shopping comparison evidence ledger (offline only)
+        run: python tools/validate_shopping_parity_evidence.py

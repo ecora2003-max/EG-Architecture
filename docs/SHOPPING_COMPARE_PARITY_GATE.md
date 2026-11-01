@@ -61,3 +61,17 @@ Die **gleichen** kanonischen Fachfälle mit vollständig belegtem Zielpreis, Pro
 3. **Architektursteuerung (nur EG-Architecture):** CI/Schema-/Policy-/Adapterbelege erneut lesen, Abweichungen dokumentieren, keine automatische `1.1.0-draft`-Freigabe.
 
 **Freigabestatus:** `DRAFT_CI_VERIFIED / ISOLATED_HOST_COMPOSITION_JVM_VERIFIED / FULL_COMPARE_PARITY_PENDING / DEVICE_PENDING`. Keine gesonderte neue juristische Recherche gemäß ADR-019; bestehende technische Rights-/Access-Gates bleiben bestehen.
+
+
+## 6. Nachprüfung 01.11.2026, ca. 02:20 MEZ – erste Full-call-Parität nachgewiesen
+
+**Dieser Abschnitt ersetzt die älteren Aussagen oben, die vollständige Python-`compare_prices`-Aufrufe als gänzlich fehlend und gezielte `SALE`-Abfragen als nicht implementiert bezeichnen.** Die restlichen Negativ- und Gesamtintegrationsanforderungen bleiben bestehen.
+
+- **Host-Code/Test-SHA:** [`acc340026`](https://github.com/ecora2003-max/Ernaerungsgedaechnis/commit/acc34002654aedf025eddfb612912290d8137ac5); nachfolgende drei App-Commits bis `de9a55ec` sind Status-/Integrationsdokumentation. Die gemeinsame Fixture `app/src/test/resources/integration/shopping_full_compare_v1.tsv` hat Blob `27f9a23679727ed793ad20a9c089ce04ea99ba67`.
+- **Direkt geprüftes CI-Joblog:** [Actions 41259852796](https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41259852796), Job `124710754809`, `completed/success`: `JUNIT_XML: files=34 tests=249 failures=0 errors=0 skipped=0 migrations=7`, `JUNIT_XML_PASS`, `BUILD SUCCESSFUL in 3m 7s`, **`FULL_COMPARE_PYTHON_PARITY_PASS: 9/9 full compare_prices calls`**. Die Kotlin-Host-JVM-Tests nutzen dieselben neun synthetischen TSV-Eingabe-/Erwartungsvektoren. Die sechs früheren gepinnten Teilreferenzen 35/17/18/37/40/24 sind ebenfalls erneut grün.
+- **In den neun gemeinsamen positiven Fällen belegt:** gleicher/anderer Bio-Status, kombinierte Rot/Orange-Signale, unbekanntes Bio/Grau, exakte rationale Grundpreis-Sortierung und nichtganzzahlige Cent-Differenz, unbekannter Pfandbetrag, kein günstigeres Angebot sowie `SALE` aus `TARGETED_PRODUCT_PRICE_QUERY`. Letzteres wurde im Kotlin-Host unter weiterhin strengen Rechten-/Filial-/Zeit-/Produktgates umgesetzt; die frühere gezielte-SALE-Funktionslücke ist **für diese synthetische Host-Variante geschlossen**.
+- **`otherDayOffers` im Kotlin-Host ergänzt:** ausschließlich hostseitig autorisierte Gültigkeitsfenster außerhalb des Einkaufstags, ohne aktuell anzeigbaren Preis oder Sparbetrag; zwei separate Kotlin-JVM-Tests. **Noch keine gemeinsame Python–Kotlin-Full-call-Parität** für diese Datumsfälle.
+- **Weiter offen:** die übrigen Negativ-, Fehler-, 256-Kandidaten-, Substitutions-, acht-Händler-, historischer-Vergleich- und Bon→Bedarf-Gesamtfälle; reale vertrauenswürdige Host-Registries; Drittquellen; Android-Geräte-/Emulatortests. Vendor-Policy 1.0.1 vs. Architektur 1.0.3 bleibt unverändert. Weder `INTEGRATED` noch `STABLE`.
+- **Maschinenlesbare Abnahmelücken:** [12-Szenarien-Evidenzregister](../policies/shopping-compare-acceptance.v1.json) und dessen [Offline-Konsistenzprüfung](../tools/validate_shopping_parity_evidence.py). Diese Prüfung validiert nur die Nachweisstruktur, **führt selbst keine Python-/Kotlin-/Gerätetests aus**.
+
+**Freigabegrad:** `DRAFT_CI_VERIFIED / 9_SHARED_FULL_CALLS_VERIFIED / REMAINING_NEGATIVE_PARITY_PENDING / ANDROID_DEVICE_PENDING`.
