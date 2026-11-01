@@ -53,3 +53,4 @@ Die Module sind **Lieferanten eigenständiger, testbarer Produkte**, keine Paral
 - [GitHub Actions Run 41226969317](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41226969317): 16 positive + 37 negative Schema-/Semantiktests, 27 Händler-Policy-Prüfungen erfolgreich. Keine Android-, Live-Händler- oder Rechtsfreigabe.
 
 - [Aktueller Integrationsaudit 01.11.2026](docs/INTEGRATION_EVIDENCE_2026-11-01.md): überprüfte Fachmodul-/Host-CI, Room-8-Teilports, festgestellter Policy-Drift 1.0.1↔1.0.3 und noch offene Host-Orchestrierung; keine produktive Freigabe.
+- [Python–Kotlin-Preisvergleichsparität – Integrationsgate](docs/SHOPPING_COMPARE_PARITY_GATE.md): aktueller 240-JVM-Test-/7-Migrationsnachweis, 12 verbindliche E2E-Szenarien und bewusst strengere Host-Gates; vollständige `compare_prices`-Parität weiterhin offen.
