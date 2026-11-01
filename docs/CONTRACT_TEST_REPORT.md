@@ -100,3 +100,22 @@ PASS recipe-host evidence ledger: 2 partial gates, 4 new JVM tests, 11 negative 
 ```
 
 **Reproduktion:** `python -m pip install -r requirements-dev.txt && python tools/validate_contract.py && python tools/validate_retailer_source_policy.py && python tools/validate_shopping_parity_evidence.py && python tools/validate_shopping_host_pipeline_evidence.py && python tools/validate_recipe_host_evidence.py`. Der letzte Validator liest ein **statisches** Host-CI-Evidenzmanifest; er führt keine Rezept-Kotlin-/Room-/Android-Tests aus. Die vier neuen Rezepttests und 290/290 JVM-Gesamtprüfungen sind separat im [Host-Run 41271956493](https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41271956493) belegt. Keine Änderung an Vertrags-Schemas oder Händler-Policy, keine stabile oder produktive Freigabe.
+
+## Rezept-v1-Import und Room-Katalog – neuer Evidenzvalidator, 01.11.2026
+
+[GitHub Actions 41276413935](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41276413935), Code-/Workflowcommit `39fac9370b8e7f26b9e40dea5e1c6dee494651e1`, Job `124759385095`, **completed/success**. Vollständiges Joblog direkt gelesen. Tatsächliche Ausgaben:
+
+```text
+PASS v1: 5 positive, 7 negative; schema + semantic gates
+PASS v1.1: 11 positive, 35 negative; schema + semantic gates
+PASS all versions: 16 positive, 42 negative
+PASS: 42 retailer capability / safety gate assertions; 4 price+offer+catalog, 4 offer-only.
+PASS evidence-ledger consistency: 12 scenarios, 9 pinned full-call cases, 6 negative mutations
+PASS host-pipeline evidence ledger: 3 partial pipelines, 28 shared full-function calls, 8 negative mutations
+PASS recipe-host evidence ledger: 2 partial gates, 4 new JVM tests, 11 negative mutations
+PASS recipe v1 import evidence: 4 milestones, 307 JVM tests, 9/14 schema fixtures, 12 negative mutations
+```
+
+**Reproduktion:** `python -m pip install -r requirements-dev.txt && python tools/validate_contract.py && python tools/validate_retailer_source_policy.py && python tools/validate_shopping_parity_evidence.py && python tools/validate_shopping_host_pipeline_evidence.py && python tools/validate_recipe_host_evidence.py && python tools/validate_recipe_v1_import_evidence.py`.
+
+**Abgrenzung:** Der neue Validator prüft nur feste, auf konkrete GitHub-Commits/Logs verweisende **statische Manifestdaten** und 12 absichtlich verfälschte Varianten. Er führt **keine** Kotlin-, Python-Referenz-, Room- oder Android-Tests aus. Der tatsächliche Host-CI-Lauf [41275499465](https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41275499465) belegt separat 307/307 JVM, 7 Migrationen und 9/14 gepinnte Rezept-Schema-Fixtures. Der Kotlin-Host prüft **nicht** das vollständige Draft-2020-12-Schema zur Laufzeit; die produktive Bestätigungsregistry und Save-Time-Revalidierung fehlen. Keine Vertrags-Schemaänderung, keine `STABLE`-/`INTEGRATED`-Freigabe.
