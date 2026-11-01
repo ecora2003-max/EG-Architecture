@@ -1,0 +1,98 @@
+{
+  "manifestVersion": "1.0.0",
+  "scope": "SYNTHETIC_HOST_RECIPE_V1_IMPORT_AND_ROOM_CATALOG",
+  "status": "PARTIAL_JVM_AND_SCHEMA_FIXTURE_VERIFIED_NOT_INTEGRATED",
+  "observedAt": "2026-11-01T05:09:33Z",
+  "contract": {
+    "version": "1.0.0-draft",
+    "schemaBlobSha": "bedde4677342817fe6b883962c8dfbbd60100072",
+    "runtimeSchemaValidation": false
+  },
+  "host": {
+    "repo": "ecora2003-max/Ernaerungsgedaechnis",
+    "commit": "d94f4a93b7e6f63a8ecfa3c620974e39e7d97609",
+    "runUrl": "https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41275499465",
+    "jobId": 124756745519,
+    "junitXmlFiles": 42,
+    "jvmTests": 307,
+    "jvmFailures": 0,
+    "jvmErrors": 0,
+    "jvmSkipped": 0,
+    "roomMigrationTests": 7,
+    "recipeSchemaPositive": 9,
+    "recipeSchemaNegative": 14,
+    "fullPythonCalls": {
+      "comparePrices": 9,
+      "projectNeeds": 12,
+      "optimizePackageMix": 7,
+      "suggestPurchases": 7
+    },
+    "androidInstrumentationExecuted": false,
+    "apkBuilt": false
+  },
+  "milestones": [
+    {
+      "id": "review_foodstore",
+      "commit": "3fb4b75f86c2d3b4680e19bc1eb16192633dabe4",
+      "runId": 41271956493,
+      "jvmTests": 290,
+      "increment": 4
+    },
+    {
+      "id": "bounded_json_import",
+      "commit": "7bf45400d10a6cdbd5e6e50f6f8346367bea6805",
+      "runId": 41273875502,
+      "jvmTests": 303,
+      "increment": 13
+    },
+    {
+      "id": "trusted_context_timestamp",
+      "commit": "de6842a3dcc25dd8f02d3db34d7b39ca8aab90a8",
+      "runId": 41274938362,
+      "jvmTests": 304,
+      "increment": 1
+    },
+    {
+      "id": "room_catalog_preview",
+      "commit": "d94f4a93b7e6f63a8ecfa3c620974e39e7d97609",
+      "runId": 41275499465,
+      "jvmTests": 307,
+      "increment": 3
+    }
+  ],
+  "codeBlobs": {
+    "boundedJson": "a926090d309c8002edcbad43564212e0dcdab967",
+    "v1Import": "666c5b3ebbe1efd4f533fb1ce5de4c1827985a45",
+    "catalogEvidence": "3e9b4f19d29d91c46a8c909cc25f35d59e8b5d83",
+    "catalogTest": "09e6c143cd82896aef32d78d396df4fbfb7b51a8",
+    "schemaChecker": "373a6ef05437f45d005aa8d73f9b3a96c1ff8911"
+  },
+  "verifiedScopes": [
+    "bounded duplicate-key-strict JSON import and conservative review in host JVM",
+    "nine positive and fourteen negative pinned v1 schema fixture cases in CI",
+    "eight consent flag combinations and independent context timestamp gate",
+    "read-only in-memory Room catalog-version preview with three synthetic tests",
+    "zero host test failures and seven synthetic Room migration tests"
+  ],
+  "notVerified": [
+    "complete Draft 2020-12 runtime validation on arbitrary Android input",
+    "full pinned EG-Rezept-KI generator and revalidator Kotlin parity",
+    "independently persisted and user-audited confirmation registry",
+    "revalidation at actual recipe save with race and stale-version handling",
+    "real nutrition and allergen evidence pipeline",
+    "Android device or emulator instrumentation and production UI/privacy",
+    "full four-module end-to-end integration"
+  ],
+  "releaseGates": {
+    "boundedJsonImportJvmVerified": true,
+    "pinnedSchemaFixtureCiVerified": true,
+    "trustedContextTimeJvmVerified": true,
+    "roomCatalogPreviewJvmVerified": true,
+    "fullRuntimeSchemaVerified": false,
+    "recipeModuleParityVerified": false,
+    "productionConfirmationRegistryVerified": false,
+    "saveTimeRevalidationVerified": false,
+    "androidDeviceVerified": false,
+    "integrated": false
+  }
+}

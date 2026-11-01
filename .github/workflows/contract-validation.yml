@@ -9,6 +9,7 @@ on:
       - 'tools/validate_shopping_parity_evidence.py'
       - 'tools/validate_shopping_host_pipeline_evidence.py'
       - 'tools/validate_recipe_host_evidence.py'
+      - 'tools/validate_recipe_v1_import_evidence.py'
       - 'requirements-dev.txt'
       - '.github/workflows/contract-validation.yml'
   pull_request:
@@ -20,6 +21,7 @@ on:
       - 'tools/validate_shopping_parity_evidence.py'
       - 'tools/validate_shopping_host_pipeline_evidence.py'
       - 'tools/validate_recipe_host_evidence.py'
+      - 'tools/validate_recipe_v1_import_evidence.py'
       - 'requirements-dev.txt'
       - '.github/workflows/contract-validation.yml'
   workflow_dispatch:
@@ -47,3 +49,5 @@ jobs:
         run: python tools/validate_shopping_host_pipeline_evidence.py
       - name: Validate recipe host evidence ledger (offline only)
         run: python tools/validate_recipe_host_evidence.py
+      - name: Validate recipe v1 import and catalog evidence (offline only)
+        run: python tools/validate_recipe_v1_import_evidence.py
