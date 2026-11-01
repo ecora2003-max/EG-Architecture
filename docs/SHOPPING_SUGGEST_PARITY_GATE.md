@@ -38,3 +38,9 @@
 5. Android-Instrumentation auf Gerät/Emulator einschließlich Offline-/UI-/Kamera-/OCR-Grenzen tatsächlich **ausführen**. `compileDebugAndroidTestKotlin` allein reicht nicht; keine APK-Behauptung aus übersprungenem Milestone.
 
 **Statusregel:** Bis zu den obigen Belegen `FULL_SUGGEST_PURCHASES_PARITY=false`, `ANDROID_DEVICE_VERIFIED=false`, `INTEGRATED=false`, `STABLE=false`. Die bestehenden v1/v1.1-Schemas und Händler-Policy 1.0.3 werden durch dieses Audit **nicht** verändert.
+
+## Nachtrag: sieben gemeinsame Vollaufrufe nachweislich grün (01.11.2026, 05:20 MEZ)
+
+Der oben zum damaligen Erhebungszeitpunkt als laufend bezeichnete [Host-CI-Lauf 41268235532](https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41268235532) ist **abgeschlossen erfolgreich**: Commit `cf8b25462ad24eb4528576e5d2a45d5ce0910937`, Job `124735426872`, JUnit-XML **273/273**, 7 Room-Migrationen, `SHOPPING_SUGGEST_PYTHON_PARITY_PASS: 7/7`. Auch alle bisherigen 9/12/7 Shopping-Vollaufrufe, sechs Teilreferenzen, Lint, Room-Schema und Android-Testkompilierung bestanden.
+
+Ein **noch neuerer** App-[CI-Lauf 41271956493](https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41271956493) auf `3fb4b75f86c2d3b4680e19bc1eb16192633dabe4` bestätigt dieselben 7/7 `suggest_purchases`-Referenzaufrufe bei **290/290 JVM-Tests und 7 Migrationen**. Diese sieben gemeinsamen **selektierten** Geld-/Mix-Ergebnisfelder bleiben keine identische Python-/Kotlin-Rechte- oder vollständige Fehler-/Ausgabeparität. Die Restabnahme-Punkte 2–5 bleiben offen. Keine Geräteausführung oder APK, kein `INTEGRATED`.
