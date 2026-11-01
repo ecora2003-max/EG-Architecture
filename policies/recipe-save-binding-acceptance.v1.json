@@ -1,0 +1,190 @@
+{
+  "manifestVersion": "1.0.0",
+  "scope": "RECIPE_SAVE_APPROVAL_BINDING",
+  "observedAt": "2026-11-01T06:13:00Z",
+  "contract": {
+    "version": "1.0.0-draft",
+    "schemaBlobSha": "bedde4677342817fe6b883962c8dfbbd60100072",
+    "fullRuntimeValidationVerified": false
+  },
+  "host": {
+    "repository": "ecora2003-max/Ernaerungsgedaechnis",
+    "testedCommit": "786271e840b1495e5f2eacf11595f552c72ce355",
+    "runId": 41279640831,
+    "jobId": 124768754231,
+    "jvmTests": 315,
+    "jvmFailures": 0,
+    "jvmErrors": 0,
+    "jvmSkipped": 0,
+    "roomMigrations": 7,
+    "recipeSchemaPositive": 9,
+    "recipeSchemaNegative": 14,
+    "androidInstrumentationExecuted": false
+  },
+  "evidenceScope": "Synthetic JVM/Room and pinned CI fixtures only. Caller-provided confirmation maps and booleans are not durable user-attestation evidence.",
+  "scenarios": [
+    {
+      "id": "SAVE_IDEMPOTENT",
+      "status": "JVM_SYNTHETIC_VERIFIED",
+      "expectedWrite": "RECIPE_ONLY",
+      "testRef": "RecipeDraftCatalogSaveTest.exactReviewedInputSavesOnceAndNeverBooksStockOrConsumption",
+      "acceptance": "Verified only within the named synthetic JVM test; no production UI attestation."
+    },
+    {
+      "id": "MISSING_CONFIRMATION",
+      "status": "JVM_SYNTHETIC_VERIFIED",
+      "expectedWrite": "NONE",
+      "testRef": "RecipeDraftCatalogSaveTest.missingSeparateConfirmationCannotWriteAnything",
+      "acceptance": "Verified only within the named synthetic JVM test; no production UI attestation."
+    },
+    {
+      "id": "DRAFT_CONTENT_CHANGE",
+      "status": "JVM_SYNTHETIC_VERIFIED",
+      "expectedWrite": "NONE",
+      "testRef": "RecipeDraftCatalogSaveTest.changedDraftOrChangedHostAllergenEvidenceCannotReusePreview",
+      "acceptance": "Verified only within the named synthetic JVM test; no production UI attestation."
+    },
+    {
+      "id": "ALLERGEN_FACT_CHANGE",
+      "status": "JVM_SYNTHETIC_VERIFIED",
+      "expectedWrite": "NONE",
+      "testRef": "RecipeDraftCatalogSaveTest.changedDraftOrChangedHostAllergenEvidenceCannotReusePreview",
+      "acceptance": "Verified only within the named synthetic JVM test; no production UI attestation."
+    },
+    {
+      "id": "CATALOG_REVISION_RACE",
+      "status": "JVM_SYNTHETIC_VERIFIED",
+      "expectedWrite": "NONE",
+      "testRef": "RecipeDraftCatalogSaveTest.interveningCatalogRevisionInvalidatesPreviouslyReadyPreview",
+      "acceptance": "Verified only within the named synthetic JVM test; no production UI attestation."
+    },
+    {
+      "id": "OPERATION_KEY_COLLISION",
+      "status": "JVM_SYNTHETIC_VERIFIED",
+      "expectedWrite": "NONE",
+      "testRef": "RecipeDraftCatalogSaveTest.reusedOperationKeyWithDifferentReviewedRecipeCannotOverwriteHistory",
+      "acceptance": "Verified only within the named synthetic JVM test; no production UI attestation."
+    },
+    {
+      "id": "NESTED_BOOKING_CLAIM",
+      "status": "JVM_SYNTHETIC_VERIFIED",
+      "expectedWrite": "NONE",
+      "testRef": "RecipeDraftV1ImportTest.bookingClaimsInNestedAndUnknownExtensionsNeverBecomeHostEvents",
+      "acceptance": "Verified only within the named synthetic JVM test; no production UI attestation."
+    },
+    {
+      "id": "FUTURE_TRUSTED_CONTEXT",
+      "status": "JVM_SYNTHETIC_VERIFIED",
+      "expectedWrite": "NONE",
+      "testRef": "RecipeDraftV1ImportTest.futureDatedHostContextCannotAttestARecipeEvenWithinProducerClockSkew",
+      "acceptance": "Verified only within the named synthetic JVM test; no production UI attestation."
+    },
+    {
+      "id": "DRAFT_ID_SWAP_SAME_RECIPE_INPUT",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Changing draftId without changing RecipeInput must invalidate prior approval"
+    },
+    {
+      "id": "TRACE_OR_META_SWAP_SAME_INPUT",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Changing producer/trace/time metadata must invalidate draft-bound approval"
+    },
+    {
+      "id": "WARNINGS_OR_EXTENSION_SWAP_SAME_INPUT",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Changing warnings or unknown extension data must invalidate approval, not silently reuse it"
+    },
+    {
+      "id": "CONSENT_FLAGS_OR_RESTRICTIONS_CHANGE",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Bind approval to exact request flags and independently confirmed restrictions"
+    },
+    {
+      "id": "CONTEXT_SNAPSHOT_REVOCATION",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Revoked or changed host context evidence invalidates the save approval"
+    },
+    {
+      "id": "CONFIRMATION_PROVENANCE",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Persist auditable user identity/action/time, draft digest and fact revision; caller booleans are insufficient"
+    },
+    {
+      "id": "CONFIRMATION_REPLAY_OTHER_DRAFT",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "A confirmation event cannot authorize a different draft, recipe or operation key"
+    },
+    {
+      "id": "PARALLEL_CATALOG_UPDATE",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Concurrent revision and save are serialized; stale preview cannot commit"
+    },
+    {
+      "id": "RESTART_AND_REPLAY",
+      "status": "PENDING",
+      "expectedWrite": "RECIPE_ONLY",
+      "testRef": null,
+      "acceptance": "Persisted confirmation and operation idempotency survive process restart without duplicate recipe"
+    },
+    {
+      "id": "ALLERGEN_EVIDENCE_REVOCATION",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Withdrawn or changed allergen confirmation blocks a stale save"
+    },
+    {
+      "id": "RUNTIME_DRAFT202012_SCHEMA",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Every incoming payload passes full pinned v1 Draft 2020-12 validation on Android runtime"
+    },
+    {
+      "id": "MODULE_REVALIDATOR_PARITY",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Pinned EG-Rezept-KI reference and host compare complete outputs on positive/negative fixtures"
+    },
+    {
+      "id": "ANDROID_USER_ACTION_E2E",
+      "status": "PENDING",
+      "expectedWrite": "RECIPE_ONLY",
+      "testRef": null,
+      "acceptance": "Instrumented Android UI proves user consent and no stock/production/consumption side effects"
+    },
+    {
+      "id": "PRODUCTION_HOST_FACTS",
+      "status": "PENDING",
+      "expectedWrite": "NONE",
+      "testRef": null,
+      "acceptance": "Product/quantity/state/allergen/context facts come from durable independently reviewed host sources"
+    }
+  ],
+  "releaseGates": {
+    "saveTimeRoomRevalidationJvmVerified": true,
+    "fullDraftIdentityBoundToApproval": false,
+    "durableUserConfirmationRegistryVerified": false,
+    "fullRuntimeSchemaVerified": false,
+    "moduleRevalidatorParityVerified": false,
+    "androidDeviceVerified": false,
+    "integrated": false
+  }
+}
