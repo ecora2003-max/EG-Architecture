@@ -1,0 +1,88 @@
+{
+  "manifestVersion": "1.0.0",
+  "scope": "SYNTHETIC_HOST_PRICE_NEEDS_PACK_PARITY_EVIDENCE",
+  "status": "PARTIAL_OFFLINE_HOST_JVM_VERIFIED_NOT_INTEGRATED",
+  "observedAt": "2026-11-01T02:07:14Z",
+  "hostEvidence": {
+    "repo": "ecora2003-max/Ernaerungsgedaechnis",
+    "ciCommit": "c32945c347027b14903299dd0d67c1c42e749d5a",
+    "ciRunUrl": "https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41263550103",
+    "ciJobId": 124721530890,
+    "jvmTests": 260,
+    "jvmFailures": 0,
+    "jvmErrors": 0,
+    "jvmSkipped": 0,
+    "roomMigrationTests": 7,
+    "androidInstrumentationExecuted": false,
+    "apkBuilt": false
+  },
+  "pythonReference": {
+    "repo": "ecora2003-max/EG-Einkaufsintelligenz",
+    "commit": "a3e13b147124ad7c25698a695e2ab42d7299a58a"
+  },
+  "pipelines": [
+    {
+      "id": "compare_prices",
+      "fixturePath": "app/src/test/resources/integration/shopping_full_compare_v1.tsv",
+      "fixtureBlobSha": "27f9a23679727ed793ad20a9c089ce04ea99ba67",
+      "sharedFullFunctionCalls": 9,
+      "verifiedFields": [
+        "selected alternatives",
+        "price signals",
+        "synthetic expected outputs"
+      ],
+      "notVerified": [
+        "all negative full-call variants",
+        "production host registries",
+        "eight-retailer capability matrix",
+        "receipt-to-need transaction chain"
+      ],
+      "status": "PARTIAL_SHARED_FULL_CALL"
+    },
+    {
+      "id": "project_needs",
+      "fixturePath": "app/src/test/resources/integration/shopping_needs_v1.tsv",
+      "fixtureBlobSha": "8ada95b1a614d937a3c6afe83f6a56ece316e4fb",
+      "sharedFullFunctionCalls": 12,
+      "verifiedFields": [
+        "horizon totals 1/7/28/56",
+        "unknown event IDs",
+        "snapshot completeness"
+      ],
+      "notVerified": [
+        "complete allocation event-by-event equivalence",
+        "all warning strings and reasons",
+        "invalid and boundary inputs in shared Python/Kotlin full calls",
+        "real Room/FoodStore snapshot binding"
+      ],
+      "status": "PARTIAL_SHARED_FULL_CALL"
+    },
+    {
+      "id": "optimize_package_mix",
+      "fixturePath": "app/src/test/resources/integration/shopping_pack_mix_v1.tsv",
+      "fixtureBlobSha": "360e06b5d821e484aa6242737566b6dafdb66d9d",
+      "sharedFullFunctionCalls": 7,
+      "verifiedFields": [
+        "status",
+        "cost",
+        "selected product IDs and pack counts",
+        "warning strings"
+      ],
+      "notVerified": [
+        "optimalityProven, rejected and usedCapacityMl cross-language equality",
+        "minPacks/maxPacks and conditional price cross-language cases",
+        "zero-price ties, capacity boundaries, malformed and overflow cases",
+        "full suggest_purchases, checkout/deposit and budget-period aggregation"
+      ],
+      "status": "PARTIAL_SHARED_FULL_CALL"
+    }
+  ],
+  "releaseGates": {
+    "fullCompareParityVerified": false,
+    "fullNeedsParityVerified": false,
+    "fullPurchaseSuggestionParityVerified": false,
+    "productionRegistriesVerified": false,
+    "androidDeviceVerified": false,
+    "integrated": false
+  }
+}
