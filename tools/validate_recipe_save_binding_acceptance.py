@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 FILE = Path(__file__).resolve().parents[1] / "policies" / "recipe-save-binding-acceptance.v1.json"
-HOST = "ecora2003-max/Ernaerungsgedaechtnis"
+HOST = "ecora2003-max/Ernaerungsgedaechnis"
 VERIFIED = {
     "SAVE_IDEMPOTENT": "RecipeDraftCatalogSaveTest.exactReviewedInputSavesOnceAndNeverBooksStockOrConsumption",
     "MISSING_CONFIRMATION": "RecipeDraftCatalogSaveTest.missingSeparateConfirmationCannotWriteAnything",
