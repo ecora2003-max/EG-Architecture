@@ -1,0 +1,78 @@
+{
+  "manifestVersion": "1.0.0",
+  "scope": "SYNTHETIC_HOST_RECIPE_REVIEW_FOODSTORE_EVIDENCE",
+  "status": "PARTIAL_RECIPE_HOST_JVM_VERIFIED_NOT_INTEGRATED",
+  "observedAt": "2026-11-01T04:14:10Z",
+  "hostEvidence": {
+    "repo": "ecora2003-max/Ernaerungsgedaechnis",
+    "ciCommit": "3fb4b75f86c2d3b4680e19bc1eb16192633dabe4",
+    "ciRunUrl": "https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41271956493",
+    "ciJobId": 124746372731,
+    "junitXmlFiles": 40,
+    "jvmTests": 290,
+    "jvmFailures": 0,
+    "jvmErrors": 0,
+    "jvmSkipped": 0,
+    "roomMigrationTests": 7,
+    "androidInstrumentationExecuted": false,
+    "apkBuilt": false,
+    "recipeHostCodeBlob": "ccc4d29616b2e0150a97939c824d1229176efd5d",
+    "recipeE2ETestBlob": "8bd7ef91dd0b561aed9644bbe6928be5d7e9e315"
+  },
+  "priorHostEvidence": {
+    "ciCommit": "760acb8a3a69c61ee2eac9f0e8aa90260514e95c",
+    "ciRunUrl": "https://github.com/ecora2003-max/Ernaerungsgedaechnis/actions/runs/41270443755",
+    "jvmTests": 286,
+    "newRecipeHostGateTests": 9
+  },
+  "recipeModuleReference": {
+    "repo": "ecora2003-max/EG-Rezept-KI",
+    "ciCommit": "5b6320d5b93a2011613b6dbb310865ed22fc39bc",
+    "ciRunUrl": "https://github.com/ecora2003-max/EG-Rezept-KI/actions/runs/41233688107",
+    "kotlinJvmTests": 220,
+    "schemaCases": 74
+  },
+  "contractReference": {
+    "version": "1.0.0-draft",
+    "schemaBlobSha": "bedde4677342817fe6b883962c8dfbbd60100072"
+  },
+  "hostGates": [
+    {
+      "id": "context_and_review",
+      "newTestsOnLatestHostCi": 1,
+      "scope": "HOST_JVM_REVIEW_ONLY",
+      "verified": [
+        "eight flag combinations from prior host CI",
+        "missing or unauthorized selected context fails closed",
+        "independent product version, quantity basis and allergen checks"
+      ],
+      "notVerified": [
+        "complete recipe.draft JSON import",
+        "full module generator/revalidation parity",
+        "real production registries"
+      ]
+    },
+    {
+      "id": "synthetic_foodstore_chain",
+      "newTestsOnLatestHostCi": 3,
+      "scope": "ROBOLECTRIC_IN_MEMORY_ROOM_ONLY",
+      "verified": [
+        "draft has no transaction",
+        "separate confirmed save, production and consumption",
+        "idempotent retries, rollback and ordered reversals"
+      ],
+      "notVerified": [
+        "Android device execution",
+        "real host UI and persisted restart flow",
+        "full concurrent transaction and old-data migration behavior"
+      ]
+    }
+  ],
+  "releaseGates": {
+    "recipeJsonImportVerified": false,
+    "recipeGeneratorHostParityVerified": false,
+    "productionRegistriesVerified": false,
+    "androidDeviceVerified": false,
+    "integrated": false
+  }
+}
