@@ -15,6 +15,7 @@ on:
       - 'policies/**'
       - 'tools/validate_contract.py'
       - 'tools/validate_retailer_source_policy.py'
+      - 'tools/validate_shopping_parity_evidence.py'
       - 'requirements-dev.txt'
       - '.github/workflows/contract-validation.yml'
   workflow_dispatch:
