@@ -16,7 +16,7 @@ MILESTONES = (
 EXPECTED_BLOBS = {
     "boundedJson": "a926090d309c8002edcbad43564212e0dcdab967",
     "v1Import": "666c5b3ebbe1efd4f533fb1ce5de4c1827985a45",
-    "catalogEvidence": "3e9b4f19d29d91c46a8c909cc25f35d59e8b5d83",
+    "catalogEvidence": "ec60ad63278e3c2b3d9f59af552665de10fefb62",
     "catalogTest": "09e6c143cd82896aef32d78d396df4fbfb7b51a8",
     "schemaChecker": "373a6ef05437f45d005aa8d73f9b3a96c1ff8911",
 }
