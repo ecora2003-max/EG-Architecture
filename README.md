@@ -18,9 +18,9 @@ Dieses öffentliche Repository ist die gemeinsame, versionierte Vertragsquelle f
 | [EG-Produktdaten](https://github.com/ecora2003-max/EG-Produktdaten) | Produktidentifikation, Bon-Aliase, Preisgedächtnis | Produktdaten-Chat |
 | [EG-Einkaufsintelligenz](https://github.com/ecora2003-max/EG-Einkaufsintelligenz) | Preisvergleich, Kaufentscheidung, Nachfrageprognose | Einkaufs-Chat |
 | [EG-Rezept-KI](https://github.com/ecora2003-max/EG-Rezept-KI) | Rezeptentwürfe und optionale Kontextnutzung | Rezept-Chat |
-| `Ernaerungsgedaechtnis` (privat) | bestehende Android-App, ausschließlich Codex | **Nur App-Integration/Codex** |
+| `Ernaerungsgedaechtnis` (GitHub-Sichtbarkeit derzeit public) | bestehende Android-App, ausschließlich Codex | **Nur App-Integration/Codex** |
 
-**Schreibregel:** Entwicklungs-Chats verändern ausschließlich ihr eigenes Repository. Andere Module und die Architektur dürfen gelesen werden; Vorschläge zu Fremdänderungen werden als dokumentierte Änderungsanträge gestellt. Das private App-Repository ist für Module nicht erforderlich. Projektanweisungen sind **keine technische GitHub-Rechtesperre**.
+**Schreibregel:** Entwicklungs-Chats verändern ausschließlich ihr eigenes Repository. Andere Module und die Architektur dürfen gelesen werden; Vorschläge zu Fremdänderungen werden als dokumentierte Änderungsanträge gestellt. Das App-Repository ist für Module nur lesend relevant; seine GitHub-Sichtbarkeit ist derzeit public und kein Schutz für personenbezogene Daten. Projektanweisungen sind **keine technische GitHub-Rechtesperre**.
 
 ## Architektur-Grundsatz
 Die Module sind **Lieferanten eigenständiger, testbarer Produkte**, keine Parallelentwickler der Gesamt-App. Sie erhalten und liefern dokumentierte Daten; sie verwenden intern frei gewählte Modelle. Codex adaptiert diese an die bestehende lokale Room-Architektur. Kein Modul greift direkt auf Room-DAOs, produktive Google Sheets, reale Bestände oder private Nutzerkonten zu.
@@ -54,3 +54,5 @@ Die Module sind **Lieferanten eigenständiger, testbarer Produkte**, keine Paral
 
 - [Aktueller Integrationsaudit 01.11.2026](docs/INTEGRATION_EVIDENCE_2026-11-01.md): überprüfte Fachmodul-/Host-CI, Room-8-Teilports, festgestellter Policy-Drift 1.0.1↔1.0.3 und noch offene Host-Orchestrierung; keine produktive Freigabe.
 - [Python–Kotlin-Preisvergleichsparität – Integrationsgate](docs/SHOPPING_COMPARE_PARITY_GATE.md): aktueller 240-JVM-Test-/7-Migrationsnachweis, 12 verbindliche E2E-Szenarien und bewusst strengere Host-Gates; vollständige `compare_prices`-Parität weiterhin offen.
+
+- [Preisvergleichs-Abnahmeregister](policies/shopping-compare-acceptance.v1.json) mit 12 Szenarien und 9 geprüften synthetischen Python–Kotlin-Gesamtfällen; [Konsistenzvalidator](tools/validate_shopping_parity_evidence.py) (keine eigenständige End-to-End-Ausführung). [Neueste Architektur-CI 41260847763](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41260847763) erfolgreich.

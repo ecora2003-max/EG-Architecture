@@ -70,3 +70,17 @@ Neuer testbarer Cross-Field-Sperrfall: `price.observation` mit `meta.usageContex
 ## Jüngster Workflow-/Händlerpolicy-Test – ADR-019, 31.10.2026, 21:09 UTC
 
 [GitHub Actions 41242200776](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41242200776), Job `124658221832`, Codecommit `53c86a32a07a9254629ece92d20edd855226d167`, **completed/success**, Joblog in der Architekturfortsetzung erneut gelesen. Exakte Ausgaben: `PASS v1: 5 positive, 7 negative`; `PASS v1.1: 11 positive, 35 negative`; `PASS all versions: 16 positive, 42 negative`; `PASS: 42 retailer capability / safety gate assertions; 4 price+offer+catalog, 4 offer-only`. Policy **1.0.3** testet zusätzlich ADR-019-Workflow-Direktiven; v1/v1.1-Vertrags-Schema-Blobs unverändert. Sieben nachfolgende Architektur-Commits bis `18794be9` betreffen ausschließlich Dokumente. **Kein** Kotlin-/App-/Geräte-/Livequellenbeweis. Neuer Abnehmer-/Host-Audit: [01.11.2026](INTEGRATION_EVIDENCE_2026-11-01.md).
+
+## Architektur-CI mit maschinenlesbarem Shopping-Abnahmeregister, 01.11.2026, ca. 02:23 MEZ
+
+[Run 41260847763](https://github.com/ecora2003-max/EG-Architecture/actions/runs/41260847763), Job `124713617228`, Code-/Workflow-Commit `0230477a299f05cab700692eae4dc674079f068f`, **completed/success**. Direktes Joblog:
+
+```text
+PASS v1: 5 positive, 7 negative; schema + semantic gates
+PASS v1.1: 11 positive, 35 negative; schema + semantic gates
+PASS all versions: 16 positive, 42 negative
+PASS: 42 retailer capability / safety gate assertions; 4 price+offer+catalog, 4 offer-only.
+PASS evidence-ledger consistency: 12 scenarios, 9 pinned full-call cases, 6 negative mutations
+```
+
+**Reproduktion:** `python -m pip install -r requirements-dev.txt && python tools/validate_contract.py && python tools/validate_retailer_source_policy.py && python tools/validate_shopping_parity_evidence.py`. Das neue Ledger validiert nur Nachweis-Kohärenz (12 Szenarien, neun referenzierte Test-IDs, offene Gates und sechs absichtlich falsche Manifestmutationen). **Es führt keine Python-`compare_prices`-Aufrufe, keine Kotlin-/Room-/Gerätetests und keine externen Quellenprüfungen aus.** Der unabhängige Host-CI-Nachweis der neun echten Full-call-Vektoren steht in [Shopping-Paritätsgate](SHOPPING_COMPARE_PARITY_GATE.md). Vertrags-Schema-Blobs unverändert, `1.1.0-draft` nicht freigegeben.
