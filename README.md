@@ -1,6 +1,8 @@
 # EG-Architecture – verbindliche Fachverträge
 **Rolle:** Chat 1 / Architektursteuerung. **Status:** erste Vertragsbasis `1.0.0-draft`, 31.10.2026; **keine Freigabe zur produktiven Integration**.
 
+> **Status 18.11.2026 – REFERENZ/ARCHIV, keine aktive eigenständige Modulsteuerung.** Aktuelle Android-Entwicklung und Arbeitsaufträge: [Ernaerungsgedaechnis](https://github.com/ecora2003-max/Ernaerungsgedaechnis) (`AGENTS.md`, `docs/NOW.md`). Dieses Repository bewahrt geprüfte Fachlogik, Vertragsdateien, Tests und historische Forschungs-/Integrationsberichte. Alte `AGENTS`-/STATUS-Freigabeschleifen sind überholt; neue Arbeiten hier nur auf konkreten Auftrag.
+
 Dieses öffentliche Repository ist die gemeinsame, versionierte Vertragsquelle für unabhängige Zuliefermodule der Android-App „Ernährungsgedächtnis“. **Es ist weder die App noch die produktive Ernährungs- oder Vorratsdatenbank.**
 
 ## Einstieg für alle Entwicklungs-Chats
